@@ -1,1 +1,5 @@
-## Voting App (Blockchain)
+### Voting App 
+
+- App in development ✔
+- Contributions are welcomed 😃
+
