@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #412d11;
+  background-color: #fffdd0;
   min-height: 100vh;
   /* display: flex;
   flex-direction: column; */
@@ -23,7 +23,7 @@
 
 .App-header {
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
@@ -36,35 +36,4 @@
 
 .link-bg {
   color: #412d11;
-}
-
-/**......................................::Navbar CSS::............................................................../
-/* Color of the links BEFORE scroll */
-.navbar-scroll .nav-link,
-.navbar-scroll .navbar-toggler-icon,
-.navbar-scroll .navbar-brand {
-  color: #fff;
-}
-
-/* Color of the links AFTER scroll */
-.navbar-scrolled .nav-link,
-.navbar-scrolled .navbar-toggler-icon,
-.navbar-scrolled .navbar-brand {
-  color: #fff;
-}
-
-/* Color of the navbar AFTER scroll */
-.navbar-scroll,
-.navbar-scrolled {
-  background-color: #cbbcb1;
-}
-
-.mask-custom {
-  backdrop-filter: blur(5px);
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-.navbar-brand {
-  font-size: 1.75rem;
-  letter-spacing: 3px;
 }
