@@ -26,8 +26,16 @@ export default function Home() {
                             </div>
                             <div class="hr"></div>
                             <div class="foot-lnk">
-                                <a href="#forgot">Forgot Password?</a>
+                                <a href="#forgot">Questions?</a>
                             </div>
+                            <footer>
+                                <ul className='list-unstyled mt-4'>
+                                    <li><i class="bi bi-whatsapp" style={{ fontSize: "2rem", color: "#008000" }}></i></li>
+                                    <li><i class="bi bi-twitter" style={{ fontSize: "2rem", color: "#0000e6" }}></i></li>
+                                    <li><i class="bi bi-envelope-fill" style={{ fontSize: "2rem", color: "#000000" }}></i></li>
+                                </ul>
+
+                            </footer>
                         </div>
                         <div class="sign-up-htm">
                             <div class="group">
@@ -51,7 +59,7 @@ export default function Home() {
                             </div>
                             <div class="hr"></div>
                             <div class="foot-lnk">
-                                <label for="tab-1" >Already Member?</label>
+                                <label for="tab-1" >Registered?</label>
                             </div>
                         </div>
                     </div>

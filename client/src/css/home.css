@@ -72,7 +72,7 @@ a {
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab {
   color: #fff;
-  border-color: #1161ee;
+  border-color: #fa255e;
 }
 .login-form {
   min-height: 345px;
@@ -143,7 +143,7 @@ a {
   color: #fff;
 }
 .login-form .group .check:checked + label .icon {
-  background: #1161ee;
+  background: #000000;
 }
 .login-form .group .check:checked + label .icon:before {
   transform: scale(1) rotate(45deg);
@@ -172,3 +172,10 @@ a {
 .foot-lnk {
   text-align: center;
 }
+
+/*colors used: DEFAULT
+#000000
+#FA255E
+#C39EA0
+#F8E5E5
+*/
