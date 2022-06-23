@@ -2,7 +2,7 @@ body {
   margin: 0;
   /* color: #6a6f8c;
   background: #c8c8c8; */
-  font: 600 16px/18px "Open Sans", sans-serif;
+  /* font: 600 16px/18px "Open Sans", sans-serif; */
 }
 *,
 :after,
@@ -71,7 +71,7 @@ a {
 }
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab {
-  color: #fff;
+  color: #000000;
   border-color: #fa255e;
 }
 .login-form {
@@ -87,7 +87,7 @@ a {
 .login-form .group .input,
 .login-form .group .button {
   width: 100%;
-  color: #fff;
+  color: #21050c;
   display: block;
 }
 .login-form .group .input,
@@ -98,18 +98,17 @@ a {
   background: rgba(255, 255, 255, 0.1);
 }
 .login-form .group input[data-type="password"] {
-  text-security: circle;
   -webkit-text-security: circle;
 }
 .login-form .group .label {
   color: #000000;
-  font-size: 12px;
+  font-size: 15px;
 }
 .login-form .group .button {
   background: #fa255e;
 }
 .login-form .group .button:hover {
-  background: #c2b5b9;
+  background: #f8e5e5;
 }
 .login-form .group label .icon {
   width: 15px;
@@ -140,7 +139,7 @@ a {
   transform: scale(0) rotate(0);
 }
 .login-form .group .check:checked + label {
-  color: #fff;
+  color: #000000;
 }
 .login-form .group .check:checked + label .icon {
   background: #000000;
@@ -166,11 +165,14 @@ a {
 
 .hr {
   height: 2px;
-  margin: 60px 0 50px 0;
-  background: rgba(255, 255, 255, 0.2);
+  margin: 10px 0 10px 0;
 }
 .foot-lnk {
   text-align: center;
+}
+
+.login-form .foot-lnk li :hover {
+  color: #fa255e;
 }
 
 /*colors used: DEFAULT
@@ -178,4 +180,6 @@ a {
 #FA255E
 #C39EA0
 #F8E5E5
+#0000e6
+#008000
 */
