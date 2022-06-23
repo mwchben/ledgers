@@ -1,8 +1,11 @@
+import '../App.css';
 import '../css/home.css'
+import NavBar from '../components/NavBar';
 
 export default function Home() {
     return (
         <>
+            <NavBar />
             <div class="login-wrap">
                 <div class="login-html">
                     <input id="tab-1" type="radio" name="tab" class="sign-in" checked /><label for="tab-1" class="tab">Log In</label>
