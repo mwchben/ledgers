@@ -1,5 +1,6 @@
 // import Home from './pages/Home'
-import Moderator from "./pages/Moderator";
+import Candidate from "./pages/Candidate";
+// import Moderator from "./pages/Moderator";
 
 function App() {
   return (
@@ -7,7 +8,8 @@ function App() {
       <div className="App">
 
         {/* < Home /> */}
-        <Moderator />
+        {/* <Moderator /> */}
+        < Candidate />
       </div>
     </>
 
