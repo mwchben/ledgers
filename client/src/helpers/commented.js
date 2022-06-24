@@ -41,6 +41,12 @@ root.render(
     </BrowserRouter>
 );
 
+
+//<i class="bi bi-archive-fill"></i> --- ballot box (vote)
+//<i class="bi bi-cloud-arrow-down-fill"></i> --- downlaod\
+//<i class="bi bi-cloud-arrow-up-fill"></i> --- upload
+
+
 // .......................................::Others::.................................................//
 <div className="box">
     <div className="container">

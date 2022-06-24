@@ -1,13 +1,15 @@
-import './App.css';
-import NavBar from './components/NavBar';
-import Home from './pages/Home';
+// import Home from './pages/Home'
+import Candidate from "./pages/Candidate";
+// import Moderator from "./pages/Moderator";
 
 function App() {
   return (
     <>
       <div className="App">
-        <NavBar />
-        < Home />
+
+        {/* < Home /> */}
+        {/* <Moderator /> */}
+        < Candidate />
       </div>
     </>
 
