@@ -20,6 +20,10 @@ const candidateSchema = new mongoose.Schema({
     image: {
         type: String,
         required: true
+    },
+    position: {
+        type: String,
+        required: true
     }
 });
 
