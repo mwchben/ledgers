@@ -41,9 +41,3 @@ ul {
     width: 100%;
   }
 }
-
-h1.title {
-  margin: 0;
-  padding-bottom: 0.4em;
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
-}
