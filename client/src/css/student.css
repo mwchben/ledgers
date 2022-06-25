@@ -1,0 +1,86 @@
+body {
+  text-align: center;
+  background-color: #f8e5e5;
+  /* min-height: 100vh; */
+
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #000000;
+}
+
+.content {
+  margin-top: 1em;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 1em;
+}
+.content2 {
+  margin-top: 1em;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.img-thumbnail {
+  padding: 0.1rem;
+  background-color: #fa255e;
+  border: 0.1px solid var(--bs-border-color);
+  border-radius: 50%;
+  width: 100px;
+  height: auto;
+}
+
+#home {
+  padding-top: 10px;
+  background-color: none;
+  border-bottom: 1px solid Gainsboro;
+}
+
+blockquote {
+  border-style: none;
+}
+
+.nav-link {
+  color: #fa255e;
+}
+.nav {
+  --bs-nav-link-hover-color: rgb(156, 0, 0);
+}
+.nav-tabs {
+  --bs-nav-tabs-border-width: none;
+}
+
+ul {
+  margin-top: 30px;
+}
+
+.main {
+  text-align: center;
+  /* background-color: #f8e5e5; */
+  /* min-height: 100hv; */
+  /* display: flex;
+    flex-direction: row; */
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #000000;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.content {
+  width: 90%;
+  background: #fff;
+  margin: 0 auto;
+  /* margin-top: -3em; */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 2em;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    width: 100%;
+  }
+}

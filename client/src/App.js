@@ -1,5 +1,6 @@
 // import Home from './pages/Home'
-import Candidate from "./pages/Candidate";
+// import Candidate from "./pages/Candidate";
+import Student from "./pages/Student";
 // import Moderator from "./pages/Moderator";
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
 
         {/* < Home /> */}
         {/* <Moderator /> */}
-        < Candidate />
+        {/* < Candidate /> */}
+        <Student />
       </div>
     </>
 
