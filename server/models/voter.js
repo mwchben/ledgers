@@ -23,4 +23,5 @@ const voterSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("Voter", voterSchema)
+const voterModel = mongoose.model("Voter", voterSchema)
+module.exports = voterModel
