@@ -16,10 +16,6 @@ const voterSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    privateKey: {
-        type: String,
-        required: false
     }
 });
 

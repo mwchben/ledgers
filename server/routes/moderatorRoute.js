@@ -2,9 +2,9 @@ const express = require("express")
 const router = express.Router()
 
 //requiring this tables since moderator should perform CRUD on them
-const candidateModel = require("../models/candidate")
+const candidateModel = require("../models/candidateModel")
 
-const voterModel = require("../models/voter")
+const voterModel = require("../models/voterModel")
 
 
 
