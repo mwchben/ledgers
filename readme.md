@@ -11,6 +11,7 @@
 - PORT 8000 - Express Server App
 - PORT 3001 - Blockchain App
 - PORT 5001 - Blockchain P2P App
+- PORT 27017 - Mongodb (Defualt)
 
 #### Packages
 
