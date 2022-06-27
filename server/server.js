@@ -8,9 +8,18 @@ require("dotenv").config({ path: "./config.env" });
 const app = express();
 const PORT = process.env.HTTP_PORT || 8000;
 
+const votersRoute = require("./routes/votersRoute")
+const moderatorRoute = require("./routes/moderatorRoute")
+const candidatesRoute = require("./routes/candidatesRoute")
 
 
-app.use(cors()); //cors allows us to connect api with react ::(different ports):: without errors (local dev not in production)
+
+app.use(cors());
 app.use(express.json());
+
+//middleware for requests::
+app.use("/api/voters/", votersRoute)
+app.use("/api/candidate/", candidatesRoute)
+app.use("/api/moderator/", moderatorRoute)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 

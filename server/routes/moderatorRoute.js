@@ -22,33 +22,6 @@ router.get("/getVoters", (req, res) => {
 
 //get a voter route
 
-//create a voter route (signUp form)
-router.get("/createVoter", async (req, res) => {
-    const voter = req.body
-    const newVoter = new voterModel(voter)
-    await newVoter.save()
-
-    res.json(voter) //actually getting correct info on the backend
-
-    //or
-
-    try {
-        const voter = await voterModel.create({
-            name: req.body.name,
-            email: req.body.email,
-            regno: req.body.regno,
-            password: req.body.password,
-            privateKey: req.body.privateKey
-        })
-
-        res.json({ status: 'ok' })
-    } catch (error) {
-        res.json({
-            status: 'error',
-            error: 'Duplicate email (check paper sheet on email unique) perrform in the create email splitting**'
-        })
-    }
-})
 
 //voter login continue with https://youtu.be/Ejg7es3ba2k?t=1287
 
@@ -63,3 +36,5 @@ router.get("/", (req, res) => {
 
 //get a candidate route
 //delete a candidate route
+
+module.exports = router
