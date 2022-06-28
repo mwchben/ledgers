@@ -2,7 +2,6 @@ const express = require("express");
 const db = require("./dbconnect")
 
 const cors = require("cors");
-require("dotenv").config({ path: "./config.env" });
 
 
 const app = express();
@@ -18,8 +17,8 @@ app.use(cors());
 app.use(express.json());
 
 //middleware for requests::
-app.use("/api/voters/", votersRoute)
-app.use("/api/candidate/", candidatesRoute)
-app.use("/api/moderator/", moderatorRoute)
+app.use("/voters/", votersRoute)
+app.use("/candidates/", candidatesRoute)
+app.use("/moderator/", moderatorRoute)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 

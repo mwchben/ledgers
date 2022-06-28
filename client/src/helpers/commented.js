@@ -6,6 +6,15 @@
 
 
 
+//........................................::server....................................................//
+router.get("/createVoter", async (req, res) => {
+    const voter = req.body
+    const newVoter = new voterModel(voter)
+    await newVoter.save()
+
+    res.json(voter) //actually getting correct info on the backend
+})
+
 // .......................................::Routing::.................................................//
 
 import { Link } from "react-router-dom";
