@@ -1,10 +1,22 @@
 const express = require("express")
 const router = express.Router()
-
-//requiring this tables since voter should GET list of candidates
 const voterModel = require("../models/voterModel")
 
-
+//middleware to getID................................................................
+async function getUser(req, res, next) {
+    let user
+    try {
+        user = await voterModel.findById(req.params.id)
+        if (user == null) {
+            return res.status(404).json({ message: "Cannot find user" })
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message })
+    }
+    res.user = user
+    next()
+}
+//....................................................................................
 
 
 //get all voters route { by Moderator}
@@ -18,12 +30,12 @@ router.get("/", async (req, res) => {
 })
 
 //get one voter route { by Moderator}
-router.get("/:id", (req, res) => {
-    res.send(req.params.id)
+router.get("/:id", getUser, (req, res) => {
+    res.json(res.user)
 })
 
 //create a voter { SignUp }
-router.post("/newVoter", async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         const newVoter = await voterModel.create({
             name: req.body.name,
@@ -42,9 +54,21 @@ router.post("/newVoter", async (req, res) => {
 })
 
 //delete a voter { By Moderator }
-router.get("/:id", (req, res) => {
-
+router.delete("/:id", getUser, async (req, res) => {
+    try {
+        await res.user.remove()
+        res.json({ message: "deleted the user" })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
 })
 
 
 module.exports = router
+
+
+
+//res.json vs res.send
+//res.json eventually calls res.send, but before that it:
+// respects the json spaces and json replacer app settings
+// ensures the response will have utf-8 charset and application/json Content-Type

@@ -1,16 +1,12 @@
 const express = require("express")
 const router = express.Router()
-
-//requiring this tables since candidate should GET list of voters and may require to see competitors
-
 const candidateModel = require("../models/candidateModel")
 
-const voterModel = require("../models/voterModel")
 
 
-//get all voters route
+
 //get all candidates route
-
+//det one candidate route
 //create a candidate { SignUp }
 router.get("/signUp", (req, res) => {
     voterModel.find({}, (error, result) => {
@@ -21,5 +17,7 @@ router.get("/signUp", (req, res) => {
         }
     })
 })
+
+//delete a candidate { By Moderator }
 
 module.exports = router
