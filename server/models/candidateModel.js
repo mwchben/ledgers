@@ -27,10 +27,6 @@ const candidateSchema = new mongoose.Schema({
     }
 });
 
-const candidateModel = mongoose.model("Candidate", candidateSchema)
+const candidateModel = mongoose.model("candidates", candidateSchema)
 module.exports = candidateModel
 
-// date: {
-//         type: Date,
-//         default: Date.now
-//     },

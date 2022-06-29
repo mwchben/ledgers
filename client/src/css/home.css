@@ -22,6 +22,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+nav a:hover {
+  color: #fa255e;
+}
 
 .login-wrap {
   width: 100%;

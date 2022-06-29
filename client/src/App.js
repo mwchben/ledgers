@@ -12,6 +12,13 @@ function App() {
           <Link to="/logCandidate">Candidate</Link> |{" "}
           <Link to="/logVoter">Voter</Link>
         </nav>
+        <footer>
+          <ul className='list-unstyled d-flex justify-content-around'>
+            <li><a href='#'><i class="bi bi-whatsapp" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
+            <li><a href='#' ><i class="bi bi-twitter" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
+            <li><a href='#' ><i class="bi bi-envelope-fill" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
+          </ul>
+        </footer>
 
       </div>
     </>
