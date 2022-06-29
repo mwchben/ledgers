@@ -36,7 +36,7 @@ router.get("/:id", getUser, (req, res) => {
     res.json(res.user)
 })
 
-//create a voter { SignUp }
+//create a voter { SignUp } and { login }
 const registerVoter = (req, res, next) => {
 
     bcrypt.hash(req.body.password, 5, function (err, hashedPassword) {
@@ -61,10 +61,10 @@ const registerVoter = (req, res, next) => {
 
 }
 const loginVoter = (req, res, next) => {
-    let emailLogin = req.body.email
+    let email = req.body.email
     let password = req.body.password
 
-    voterModel.findOne({ email: emailLogin })
+    voterModel.findOne({ email: email })
         .then(voter => {
             if (voter) {
                 bcrypt.compare(password, voter.password, function (err, result) {
@@ -72,7 +72,11 @@ const loginVoter = (req, res, next) => {
                         res.json({ error: err })
                     }
                     if (result) {
-                        let token = jwt.sign({})
+                        let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
+                        res.json({
+                            message: "login successful!",
+                            token: token
+                        })
                     }
                     else {
                         res.json({ message: "Password does not match!" })
@@ -83,23 +87,26 @@ const loginVoter = (req, res, next) => {
             }
         })
 }
-router.post("/", registerVoter, async (req, res) => {
-    // try {
-    //     const newVoter = await voterModel.create({
-    //         name: req.body.name,
-    //         email: req.body.email,
-    //         regno: req.body.regno,
-    //         password: req.body.password
-    //     })
 
-    //     res.status(201).json(newVoter)
-    // } catch (error) {
-    //     res.status(400).json({
-    //         message: error.message,
-    //         // error: 'Duplicate email (check paper sheet on email unique) perrform in the create email splitting**'
-    //     })
-    // }
-})
+router.post("/reg", registerVoter)
+router.post("/log", loginVoter)
+// router.post("/", registerVoter, async (req, res) => {
+//     try {
+//         const newVoter = await voterModel.create({
+//             name: req.body.name,
+//             email: req.body.email,
+//             regno: req.body.regno,
+//             password: req.body.password
+//         })
+
+//         res.status(201).json(newVoter)
+//     } catch (error) {
+//         res.status(400).json({
+//             message: error.message,
+//             // error: 'Duplicate email (check paper sheet on email unique) perrform in the create email splitting**'
+//         })
+//     }
+// })
 
 //delete a voter { By Moderator }
 router.delete("/:id", getUser, async (req, res) => {
