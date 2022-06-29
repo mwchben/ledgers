@@ -2,6 +2,7 @@ const voterModel = require("../models/voterModel")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
+//middleware to register a voter with req, res................................................................
 const registerVoter = (req, res, next) => {
 
     bcrypt.hash(req.body.password, 5, function (err, hashedPassword) {
@@ -24,7 +25,7 @@ const registerVoter = (req, res, next) => {
     })
 }
 
-
+//middleware to login a voter with req, res................................................................
 const loginVoter = (req, res, next) => {
     let email = req.body.email
     let password = req.body.password
@@ -53,6 +54,8 @@ const loginVoter = (req, res, next) => {
         })
 }
 
+
+//middleware to getID................................................................
 async function getUser(req, res, next) {
     let user
     try {

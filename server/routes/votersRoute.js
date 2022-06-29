@@ -3,9 +3,7 @@ const router = express.Router()
 const voterModel = require("../models/voterModel")
 const authMiddleware = require("../middlewares/index")
 
-//middleware to getID................................................................
 
-//....................................................................................
 
 
 //get all voters route { by Moderator}
