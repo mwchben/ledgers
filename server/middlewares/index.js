@@ -41,7 +41,7 @@ const loginVoter = (req, res, next) => {
                     if (result) {
                         let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
                         res.json({
-                            message: "login successful!",
+                            message: "Voter login successful!",
                             token: token
                         })
                     }
@@ -109,7 +109,7 @@ const loginCandidate = (req, res, next) => {
                     if (result) {
                         let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
                         res.json({
-                            message: "login successful!",
+                            message: "Candidate login successful!",
                             token: token
                         })
                     }

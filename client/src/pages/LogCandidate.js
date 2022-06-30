@@ -50,8 +50,8 @@ export default function LogCandidate() {
             <h3>Candidate</h3>
             <div class="login-wrap">
                 <div class="login-html">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in" defaultChecked /><label for="tab-1" class="tab">Log In</label>
-                    <input id="tab-2" type="radio" name="tab" class="sign-up" /><label for="tab-2" class="tab">Register</label>
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" defaultChecked /><label htmlFor="tab-1" class="tab">Log In</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up" /><label htmlFor="tab-2" class="tab">Register</label>
                     <div class="login-form">
                         <div class="sign-in-htm">
                             <form onSubmit={(e) => handleLogSubmit(e)}>
