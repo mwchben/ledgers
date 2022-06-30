@@ -1,7 +1,10 @@
 const voterModel = require("../models/voterModel")
+const candidateModel = require("../models/candidateModel")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
+//VOTER!!!
+//middleware to register wth req, res..................................................................
 const registerVoter = (req, res, next) => {
 
     bcrypt.hash(req.body.password, 5, function (err, hashedPassword) {
@@ -23,8 +26,7 @@ const registerVoter = (req, res, next) => {
             })
     })
 }
-
-
+//middleware to login with req, res....................................................................
 const loginVoter = (req, res, next) => {
     let email = req.body.email
     let password = req.body.password
@@ -39,7 +41,7 @@ const loginVoter = (req, res, next) => {
                     if (result) {
                         let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
                         res.json({
-                            message: "login successful!",
+                            message: "Voter login successful!",
                             token: token
                         })
                     }
@@ -52,19 +54,87 @@ const loginVoter = (req, res, next) => {
             }
         })
 }
-
-async function getUser(req, res, next) {
-    let user
+//middleware to getID..................................................................................
+async function getVoter(req, res, next) {
+    let voter
     try {
-        user = await voterModel.findById(req.params.id)
-        if (user == null) {
-            return res.status(404).json({ message: "Cannot find user" })
+        voter = await voterModel.findById(req.params.id)
+        if (voter == null) {
+            return res.status(404).json({ message: "Cannot find voter" })
         }
     } catch (error) {
         return res.status(500).json({ message: error.message })
     }
-    res.user = user
+    res.voter = voter
     next()
 }
 
-module.exports = { registerVoter, loginVoter, getUser }
+
+
+//CANDIDATE!!!!
+//middleware to register with req, res..................................................................
+const registerCandidate = (req, res, next) => {
+
+    bcrypt.hash(req.body.password, 5, function (err, hashedPassword) {
+        if (err) {
+            res.json({ error: err })
+        }
+        let voter = new candidateModel({
+            name: req.body.name,
+            email: req.body.email,
+            regno: req.body.regno,
+            password: hashedPassword
+        })
+        voter.save()
+            .then(voter => {
+                res.json({ message: "Success! You are added as a candidate" })
+            })
+            .catch(error => {
+                res.json({ message: "An error occured!" })
+            })
+    })
+}
+//middleware to login with req, res.....................................................................
+const loginCandidate = (req, res, next) => {
+    let email = req.body.email
+    let password = req.body.password
+
+    candidateModel.findOne({ email: email })
+        .then(voter => {
+            if (voter) {
+                bcrypt.compare(password, voter.password, function (err, result) {
+                    if (err) {
+                        res.json({ error: err })
+                    }
+                    if (result) {
+                        let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
+                        res.json({
+                            message: "Candidate login successful!",
+                            token: token
+                        })
+                    }
+                    else {
+                        res.json({ message: "Password does not match!" })
+                    }
+                })
+            } else {
+                res.json({ message: "Candidate does not exist" })
+            }
+        })
+}
+//middleware to getID....................................................................................
+async function getCandidate(req, res, next) {
+    let candidate
+    try {
+        candidate = await candidateModel.findById(req.params.id)
+        if (candidate == null) {
+            return res.status(404).json({ message: "Cannot find candidate" })
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message })
+    }
+    res.candidate = candidate
+    next()
+}
+
+module.exports = { registerVoter, loginVoter, registerCandidate, loginCandidate, getVoter, getCandidate }
