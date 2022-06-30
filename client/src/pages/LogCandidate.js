@@ -48,12 +48,12 @@ export default function LogCandidate() {
         <>
             <NavBar />
             <h3>Candidate</h3>
-            <div class="login-wrap">
-                <div class="login-html">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in" defaultChecked /><label htmlFor="tab-1" class="tab">Log In</label>
-                    <input id="tab-2" type="radio" name="tab" class="sign-up" /><label htmlFor="tab-2" class="tab">Register</label>
-                    <div class="login-form">
-                        <div class="sign-in-htm">
+            <div className="login-wrap">
+                <div className="login-html">
+                    <input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked /><label htmlFor="tab-1" className="tab">Log In</label>
+                    <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">Register</label>
+                    <div className="login-form">
+                        <div className="sign-in-htm">
                             <form onSubmit={(e) => handleLogSubmit(e)}>
                                 <div className="group">
                                     <label htmlFor="email" className="label">TUK Email Address</label>
@@ -72,7 +72,7 @@ export default function LogCandidate() {
                                 <Link to="/" style={{ color: "#fa255e" }}>Back</Link>
                             </div>
                         </div>
-                        <div class="sign-up-htm">
+                        <div className="sign-up-htm">
                             <form onSubmit={(e) => handleRegSubmit(e)}>
                                 <div className="group">
                                     <label htmlFor="name" className="label">Name</label>

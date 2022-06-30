@@ -14,12 +14,11 @@ function App() {
         </nav>
         <footer>
           <ul className='list-unstyled d-flex justify-content-around'>
-            <li><a href='#'><i class="bi bi-whatsapp" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
-            <li><a href='#' ><i class="bi bi-twitter" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
-            <li><a href='#' ><i class="bi bi-envelope-fill" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
+            <li><a href='#'><i className="bi bi-whatsapp" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
+            <li><a href='#' ><i className="bi bi-twitter" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
+            <li><a href='#' ><i className="bi bi-envelope-fill" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
           </ul>
         </footer>
-
       </div>
     </>
 
