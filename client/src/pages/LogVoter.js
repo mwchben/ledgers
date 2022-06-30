@@ -58,7 +58,7 @@ export default function LogVoter() {
                             <form onSubmit={(e) => handleLogSubmit(e)}>
                                 <div className="group">
                                     <label htmlFor="email" className="label">TUK Email Address</label>
-                                    <input id="email" type="email" name="email" value={dataLog.email} onChange={(e) => setDataLog({ ...dataLog, email: e.target.value })} className="input" />
+                                    <input id="email" type="email" name="email" value={dataLog.email} onChange={(e) => setDataLog({ ...dataLog, email: e.target.value })} placeholder="voter@students.tukenya.ac.ke" className="input" />
                                 </div>
                                 <div className="group">
                                     <label htmlFor="password" className="label">Password</label>
@@ -78,15 +78,15 @@ export default function LogVoter() {
                             <form onSubmit={(e) => handleRegSubmit(e)}>
                                 <div className="group">
                                     <label htmlFor="name" className="label">Name</label>
-                                    <input id="name" type="text" name="name" value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} className="input" />
+                                    <input id="name" type="text" name="name" value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} placeholder="Firstname   lastname" className="input" />
                                 </div>
                                 <div className="group">
                                     <label htmlFor="email" className="label">TUK Email Address</label>
-                                    <input id="email" type="email" name="email" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} className="input" />
+                                    <input id="email" type="email" name="email" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} placeholder="voter@students.tukenya.ac.ke" className="input" />
                                 </div>
                                 <div className="group">
                                     <label htmlFor="regno" className="label">Registration Number</label>
-                                    <input id="regno" type="text" name="regno" value={data.regno} onChange={(e) => setData({ ...data, regno: e.target.value })} className="input" />
+                                    <input id="regno" type="text" name="regno" value={data.regno} onChange={(e) => setData({ ...data, regno: e.target.value })} placeholder="SCII/00000/2010" className="input" />
                                 </div>
                                 <div className="group">
                                     <label htmlFor="password" className="label">Password</label>
