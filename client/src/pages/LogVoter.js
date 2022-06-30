@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 
 export default function LogVoter() {
 
-    const URL = "http://localhost:8000/voters/reg"
+    const URL_REG = "http://localhost:8000/voters/reg"
+    const URL_LOG = "http://localhost:8000/voters/log"
+
     const [data, setData] = useState({
         name: "",
         email: "",
@@ -15,12 +17,27 @@ export default function LogVoter() {
         password: ""
     })
 
-    console.log(data);
+    const [dataLog, setDataLog] = useState({
+        email: "",
+        password: ""
+    })
 
-    function handleSubmit(e) {
+    // console.log(data);
+    console.log(dataLog);
+
+    function handleRegSubmit(e) {
         e.preventDefault()
-        axios.post(URL, {
+        axios.post(URL_REG, {
             name: data.name, email: data.email, regno: data.regno, password: data.password
+        })
+            .then(response => {
+                console.log(response.data);
+            })
+    }
+    function handleLogSubmit(e) {
+        e.preventDefault()
+        axios.post(URL_LOG, {
+            email: dataLog.email, password: dataLog.password
         })
             .then(response => {
                 console.log(response.data);
@@ -35,33 +52,30 @@ export default function LogVoter() {
                 <div className="login-html">
 
                     <input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked /><label htmlFor="tab-1" className="tab">Log In</label>
-                    <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">Sign Up</label>
+                    <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">Register</label>
                     <div className="login-form">
                         <div className="sign-in-htm">
-                            <div className="group">
-                                <label htmlFor="user" className="label">TUK Email Address</label>
-                                <input id="user" type="text" className="input" />
-                            </div>
-                            <div className="group">
-                                <label htmlFor="pass" className="label">Password</label>
-                                <input id="pass" type="password" className="input" data-type="password" />
-                            </div>
-                            {/* <div className="group">
-                                <input id="check" type="checkbox" className="check" checked />
-                                <label htmlFo="check"><span className="icon"></span> Keep me Signed in</label>
-                            </div> */}
-                            <div className="group">
-                                <input type="submit" className="button" value="Sign In" />
-                            </div>
+                            <form onSubmit={(e) => handleLogSubmit(e)}>
+                                <div className="group">
+                                    <label htmlFor="email" className="label">TUK Email Address</label>
+                                    <input id="email" type="email" name="email" value={dataLog.email} onChange={(e) => setDataLog({ ...dataLog, email: e.target.value })} className="input" />
+                                </div>
+                                <div className="group">
+                                    <label htmlFor="password" className="label">Password</label>
+                                    <input id="password" type="password" name="password" value={dataLog.password} onChange={(e) => setDataLog({ ...dataLog, password: e.target.value })} className="input" data-type="password" />
+                                </div>
+                                <div className="group">
+                                    <input type="submit" className="button" value="Login" />
+                                </div>
+                            </form>
                             <div className="hr"></div>
                             <div className="foot-lnk">
-                                <Link to="/"><i className="bi bi-x-lg" style={{ fontSize: "2rem", color: "#fa255e" }}></i></Link>
+                                <Link to="/" style={{ color: "#fa255e" }}>Back</Link>
                             </div>
-
                         </div>
 
                         <div className="sign-up-htm">
-                            <form onSubmit={(e) => handleSubmit(e)}>
+                            <form onSubmit={(e) => handleRegSubmit(e)}>
                                 <div className="group">
                                     <label htmlFor="name" className="label">Name</label>
                                     <input id="name" type="text" name="name" value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} className="input" />
