@@ -5,7 +5,6 @@ const authMiddleware = require("../middlewares/index")
 
 
 
-
 //get all voters route { by Moderator}
 router.get("/", async (req, res) => {
     try {
@@ -17,8 +16,8 @@ router.get("/", async (req, res) => {
 })
 
 //get one voter route { by Moderator}
-router.get("/:id", authMiddleware.getUser, (req, res) => {
-    res.json(res.user)
+router.get("/:id", authMiddleware.getVoter, (req, res) => {
+    res.json(res.voter)
 })
 
 //create a voter { SignUp } and { login }
@@ -43,9 +42,9 @@ router.post("/log", authMiddleware.loginVoter)
 // })
 
 //delete a voter { By Moderator }
-router.delete("/:id", authMiddleware.getUser, async (req, res) => {
+router.delete("/:id", authMiddleware.getVoter, async (req, res) => {
     try {
-        await res.user.remove()
+        await res.voter.remove()
         res.json({ message: "deleted the voter" })
     } catch (error) {
         res.status(500).json({ message: error.message })
