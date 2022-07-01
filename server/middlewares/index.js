@@ -112,6 +112,7 @@ const loginCandidate = (req, res, next) => {
                             message: "Candidate login successful!",
                             token: token
                         })
+                        // res.redirect('../../../vote-app/client/src/pages/Candidate')
                     }
                     else {
                         res.json({ message: "Password does not match!" })
