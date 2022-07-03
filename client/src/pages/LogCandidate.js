@@ -34,8 +34,9 @@ export default function LogCandidate() {
         })
             .then(response => {
                 console.log(response.data);
-                let a = response.data;
-                toast(a)
+                toast.info(response.data.message, {
+                    position: toast.POSITION.TOP_CENTER
+                });
             })
     }
     function handleLogSubmit(e) {
@@ -45,7 +46,9 @@ export default function LogCandidate() {
         })
             .then(response => {
                 console.log(response.data);
-                toast()
+                toast.info(response.data.message, {
+                    position: toast.POSITION.TOP_CENTER
+                });
             })
     }
 
