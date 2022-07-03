@@ -19,7 +19,7 @@ const registerVoter = (req, res, next) => {
         })
         voter.save()
             .then(voter => {
-                res.json({ message: "Success! You are added as a voter" })
+                res.json({ message: "You are now a voter" })
             })
             .catch(error => {
                 res.json({ message: "An err occured!" })
@@ -41,12 +41,12 @@ const loginVoter = (req, res, next) => {
                     if (result) {
                         let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
                         res.json({
-                            message: "Voter login successful!",
+                            message: "Voter successfull login!",
                             token: token
                         })
                     }
                     else {
-                        res.json({ message: "Password does not match!" })
+                        res.json({ message: "Password mismatch!" })
                     }
                 })
             } else {
@@ -87,7 +87,7 @@ const registerCandidate = (req, res, next) => {
         })
         voter.save()
             .then(voter => {
-                res.json({ message: "Success! You are added as a candidate" })
+                res.json({ message: "You are now a candidate" })
             })
             .catch(error => {
                 res.json({ message: "An error occured!" })
@@ -109,12 +109,13 @@ const loginCandidate = (req, res, next) => {
                     if (result) {
                         let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
                         res.json({
-                            message: "Candidate login successful!",
+                            message: "Candidate successfull login!",
                             token: token
                         })
+                        // res.redirect('../../../vote-app/client/src/pages/Candidate')
                     }
                     else {
-                        res.json({ message: "Password does not match!" })
+                        res.json({ message: "Password mismatch!" })
                     }
                 })
             } else {

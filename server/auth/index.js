@@ -1,0 +1,5 @@
+const authVoter = () => {
+    if (condition) {
+
+    }
+}

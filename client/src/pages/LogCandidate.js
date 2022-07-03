@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useState } from 'react';
 import NavBar from '../components/NavBar';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LogCandidate() {
 
@@ -32,6 +34,9 @@ export default function LogCandidate() {
         })
             .then(response => {
                 console.log(response.data);
+                toast.info(response.data.message, {
+                    position: toast.POSITION.TOP_CENTER
+                });
             })
     }
     function handleLogSubmit(e) {
@@ -41,6 +46,9 @@ export default function LogCandidate() {
         })
             .then(response => {
                 console.log(response.data);
+                toast.info(response.data.message, {
+                    position: toast.POSITION.TOP_CENTER
+                });
             })
     }
 
@@ -102,7 +110,7 @@ export default function LogCandidate() {
                 </div>
             </div>
 
-
+            <ToastContainer />
         </>
     );
 }

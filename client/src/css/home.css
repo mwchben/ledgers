@@ -179,6 +179,13 @@ nav a:hover {
   color: #fa255e;
 }
 
+/* validation from::https://www.youtube.com/watch?v=QxjAOSUQjP0&list=PL4cUxeGkcC9g6m_6Sld9Q4jzqdqHd2HiD&index=15 */
+input.valid {
+  border-color: rgb(72, 255, 0);
+}
+input.invalid {
+  border-color: rgb(255, 0, 0);
+}
 /*colors used: DEFAULT
 #000000
 #FA255E
