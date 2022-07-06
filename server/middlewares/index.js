@@ -1,3 +1,4 @@
+require("dotenv").config({ path: "./config.env" });
 const voterModel = require("../models/voterModel")
 const candidateModel = require("../models/candidateModel")
 const bcrypt = require("bcryptjs")
@@ -90,7 +91,7 @@ const registerCandidate = (req, res, next) => {
                 res.json({ message: "You are now a candidate" })
             })
             .catch(error => {
-                res.json({ message: "An error occured!" })
+                res.json({ message: error })
             })
     })
 }
@@ -107,7 +108,7 @@ const loginCandidate = (req, res, next) => {
                         res.json({ error: err })
                     }
                     if (result) {
-                        let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
+                        let token = jwt.sign({ regno: voter.regno }, process.env.JWTOKEN, { expiresIn: "1hr" })
                         res.json({
                             message: "Candidate successfull login!",
                             token: token
