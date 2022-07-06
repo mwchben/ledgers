@@ -3,22 +3,22 @@ const mongoose = require("mongoose")
 const voterSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: [true, 'Your name is required!']
     },
     email: {
         type: String,
-        required: true,
-        unique: true,
+        required: [true, 'A tuk email is required!'],
+        unique: true, //[true, 'Email is already registered!'],
         lowercase: true
     },
     regno: {
         type: String,
-        required: [true, 'Voter regno is required']
+        required: [true, 'Registration number is required!']
     },
     password: {
         type: String,
-        required: true,
-        minLength: 6
+        required: [true, 'Password is required'],
+        minlength: [7, 'Minimum password length is 7 characters']
     }
 });
 
