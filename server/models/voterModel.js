@@ -7,17 +7,20 @@ const voterSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        lowercase: true
     },
     regno: {
         type: String,
-        required: true
+        required: [true, 'Voter regno is required']
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minLength: 6
     }
 });
 
-const voterModel = mongoose.model("voters", voterSchema) //args(name of model in db, schema)
+const voterModel = mongoose.model("voter", voterSchema) //args(name of model in db, schema)
 module.exports = voterModel

@@ -7,18 +7,24 @@ const candidateSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        lowercase: true
     },
     regno: {
         type: String,
-        required: true
+        required: [true, 'Candidate regno is required']
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minLength: 6
     }
 });
 
-const candidateModel = mongoose.model("candidates", candidateSchema)
+const candidateModel = mongoose.model("candidate", candidateSchema)
 module.exports = candidateModel
 
+
+//ensure the errors customed made in the model creation here are seen in toast
+// https://mongoosejs.com/docs/validation.html
