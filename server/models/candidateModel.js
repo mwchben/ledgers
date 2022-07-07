@@ -9,7 +9,12 @@ const candidateSchema = new mongoose.Schema({
         type: String,
         required: [true, 'A tuk email is required!'],
         unique: true, //[true, 'Email is already registered!'],
-        lowercase: true
+        validate: {
+            validator: function (v) {
+                return /@students\.tukenya\.ac\.ke/i.test(v);
+            },
+            message: props => `${props.value} is not a valid phone number!`
+        },
     },
     regno: {
         type: String,
