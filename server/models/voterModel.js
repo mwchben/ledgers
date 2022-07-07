@@ -13,7 +13,7 @@ const voterSchema = new mongoose.Schema({
             validator: function (v) {
                 return /@students\.tukenya\.ac\.ke/i.test(v);
             },
-            message: props => `${props.value} is not a valid phone number!`
+            message: props => `${props.value} is not a valid tuk email!`
         },
     },
     regno: {

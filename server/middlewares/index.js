@@ -4,6 +4,30 @@ const candidateModel = require("../models/candidateModel")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
+//handle ERRORS!! 
+function handleError(error) {
+    console.log(error.message, error.code);
+    var errorValues = {
+        name: '',
+        email: '',
+        regno: '',
+        password: ''
+    }
+
+    if (error.code === 11000) {
+        errorValues.email = 'Email already registered';
+        return errorValues;
+    }
+
+    if (error.message.includes('candidate validation failed') || error.message.includes('voter validation failed')) {
+        Object.values(error.errors).forEach(({ properties }) => {
+            errorValues[properties.path] = properties.message;
+        })
+    }
+
+    return errorValues;
+}
+
 //VOTER!!!
 //middleware to register wth req, res..................................................................
 const registerVoter = (req, res, next) => {
@@ -91,7 +115,10 @@ const registerCandidate = (req, res, next) => {
                 res.json({ message: "You are now a candidate" })
             })
             .catch(error => {
-                res.json({ message: error })
+                //prev ->  res.json({ message: error })
+
+                const errors = handleError(error)
+                res.json({ message: errors })
             })
     })
 }
