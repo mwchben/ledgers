@@ -15,6 +15,6 @@ be included*
 
 
 //password not working
-//format toast for only the success and request failures, errors in input handled in the className form inputs
+//format toast for only the success and request failures, errors in input handled in the className form inputs ✔
 //ensure the errors customed made in the model creation here are seen in toast
 // https://mongoosejs.com/docs/validation.html

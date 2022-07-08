@@ -55,9 +55,7 @@ export default function LogCandidate() {
         }, { withCredentials: true })
             .then(response => {
                 console.log(response.data);
-                toast.info(response.data.message, {
-                    position: toast.POSITION.TOP_CENTER
-                });
+                toast.info(response.data.message, { position: toast.POSITION.TOP_CENTER });
             })
     }
 
