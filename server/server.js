@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("./dbconnect")
 
 const cors = require("cors");
-const cookieparser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 
 
 const app = express();
@@ -14,7 +14,7 @@ const candidatesRoute = require("./routes/candidatesRoute")
 
 
 //middleware from packages
-app.use(cookieparser());
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 

@@ -27,6 +27,13 @@ function handleError(error) {
 
     return errorValues;
 }
+//create JWT token!!
+const expiry = 1 * 24 * 60 * 60;
+function createToken(email) {
+    //payload and headers hashed with this "process.env.JWTOKEN" to create the signature
+    return jwt.sign({ email }, process.env.JWTOKEN, { expiresIn: expiry })
+}
+
 
 //VOTER!!!
 //middleware to register wth req, res..................................................................
@@ -135,7 +142,10 @@ const loginCandidate = (req, res, next) => {
                         res.json({ error: err })
                     }
                     if (result) {
-                        let token = jwt.sign({ regno: voter.regno }, process.env.JWTOKEN, { expiresIn: "1hr" })
+                        //let tokend = jwt.sign({ regno: voter.regno }, process.env.JWTOKEN, { expiresIn: "1hr" })
+                        let token = createToken(voter.email);
+
+                        res.cookie('loginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
                         res.json({
                             message: "Candidate successfull login!",
                             token: token
