@@ -18,3 +18,20 @@ be included*
 //format toast for only the success and request failures, errors in input handled in the className form inputs ✔
 //ensure the errors customed made in the model creation here are seen in toast
 // https://mongoosejs.com/docs/validation.html
+
+if (response.data.message) {
+                    nameError.textContent = response.data.message.name;
+                    emailError.textContent = response.data.message.email;
+                    regnoError.textContent = response.data.message.regno;
+                    passwordError.textContent = response.data.message.password;
+                }
+
+                // nameError.textContent = '';
+        // emailError.textContent = '';
+        // regnoError.textContent = '';
+        // passwordError.textContent = '';
+
+
+        toast.info(response.data.message, {
+                    position: toast.POSITION.TOP_CENTER
+                });

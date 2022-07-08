@@ -8,10 +8,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const nameError = document.querySelector(".nameError");
-const emailError = document.querySelector(".emailError");
-const regnoError = document.querySelector(".regnoError");
-const passwordError = document.querySelector(".passwordError");
+// const nameError = document.querySelector('.nameError');
+// const emailError = document.querySelector(".emailError");
+// const regnoError = document.querySelector(".regnoError");
+// const passwordError = document.querySelector(".passwordError");
 
 export default function LogCandidate() {
 
@@ -31,21 +31,33 @@ export default function LogCandidate() {
     })
 
     // console.log(data);
-    console.log(dataLog);
+    //console.log(dataLog);
 
     function handleRegSubmit(e) {
         e.preventDefault()
+
+        // nameError.textContent = '';
+        // emailError.textContent = '';
+        // regnoError.textContent = '';
+        // passwordError.textContent = '';
+
         axios.post(URL_REG, {
             name: data.name, email: data.email, regno: data.regno, password: data.password
         })
             .then(response => {
                 console.log(response.data);
                 if (response.data.message) {
-                    nameError.textContent = response.data.message.name;
-                    emailError.textContent = response.data.message.email;
-                    regnoError.textContent = response.data.message.regno;
-                    passwordError.textContent = response.data.message.password;
+                    const isError = response.data.message
+                    console.log(response.data.message);
+                    // nameError.textContent = response.data.message.name;
+                    // emailError.textContent = response.data.message.email;
+                    // regnoError.textContent = response.data.message.regno;
+                    // passwordError.textContent = response.data.message.password;
                 }
+                toast.info(response.data.message, {
+                    position: toast.POSITION.TOP_CENTER
+                });
+
             })
     }
     function handleLogSubmit(e) {
@@ -55,7 +67,9 @@ export default function LogCandidate() {
         }, { withCredentials: true })
             .then(response => {
                 console.log(response.data);
-                toast.info(response.data.message, { position: toast.POSITION.TOP_CENTER });
+                toast.info(response.data.message, {
+                    position: toast.POSITION.TOP_CENTER
+                });
             })
     }
 
