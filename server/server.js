@@ -2,6 +2,7 @@ const express = require("express");
 const db = require("./dbconnect")
 
 const cors = require("cors");
+const cookieparser = require("cookie-parser");
 
 
 const app = express();
@@ -12,7 +13,8 @@ const moderatorRoute = require("./routes/moderatorRoute")
 const candidatesRoute = require("./routes/candidatesRoute")
 
 
-
+//middleware from packages
+app.use(cookieparser());
 app.use(cors());
 app.use(express.json());
 

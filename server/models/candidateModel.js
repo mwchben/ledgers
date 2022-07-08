@@ -30,7 +30,3 @@ const candidateSchema = new mongoose.Schema({
 const candidateModel = mongoose.model("candidate", candidateSchema)
 module.exports = candidateModel
 
-//password not working
-//format toast
-//ensure the errors customed made in the model creation here are seen in toast
-// https://mongoosejs.com/docs/validation.html

@@ -12,3 +12,9 @@ be included*
 
  1. Admin-IEBC (Director, details i.e., approve candidate for Ballot) + 
  2. Students (Login, Mani, Vote, Results)
+
+
+//password not working
+//format toast for only the success and request failures, errors in input handled in the className form inputs
+//ensure the errors customed made in the model creation here are seen in toast
+// https://mongoosejs.com/docs/validation.html
