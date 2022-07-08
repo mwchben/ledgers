@@ -15,7 +15,16 @@ const candidatesRoute = require("./routes/candidatesRoute")
 
 //middleware from packages
 app.use(cookieParser());
-app.use(cors());
+
+const corsOptions = {
+    //To allow requests from client changes to revert are in:
+    origin: [
+        "http://localhost:3000",
+    ],
+    credentials: true,
+    exposedHeaders: ["set-cookie"],
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 //middleware for requests::
