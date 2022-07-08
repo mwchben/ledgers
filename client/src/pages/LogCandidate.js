@@ -7,6 +7,12 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+const nameError = document.querySelector(".nameError");
+const emailError = document.querySelector(".emailError");
+const regnoError = document.querySelector(".regnoError");
+const passwordError = document.querySelector(".passwordError");
+
 export default function LogCandidate() {
 
     const URL_REG = "http://localhost:8000/candidates/reg"
@@ -34,9 +40,12 @@ export default function LogCandidate() {
         })
             .then(response => {
                 console.log(response.data);
-                toast.info(response.data.message, {
-                    position: toast.POSITION.TOP_CENTER
-                });
+                if (response.data.message) {
+                    nameError.textContent = response.data.message.name;
+                    emailError.textContent = response.data.message.email;
+                    regnoError.textContent = response.data.message.regno;
+                    passwordError.textContent = response.data.message.password;
+                }
             })
     }
     function handleLogSubmit(e) {
@@ -85,18 +94,22 @@ export default function LogCandidate() {
                                 <div className="group">
                                     <label htmlFor="name" className="label">Name</label>
                                     <input id="name" type="text" name="name" value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} placeholder="Firstname   lastname" className="input" />
+                                    <div className='nameError'></div>
                                 </div>
                                 <div className="group">
                                     <label htmlFor="email" className="label">TUK Email Address</label>
                                     <input id="email" type="email" name="email" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} placeholder="voter@students.tukenya.ac.ke" className="input" />
+                                    <div className='emailError'></div>
                                 </div>
                                 <div className="group">
                                     <label htmlFor="regno" className="label">Registration Number</label>
                                     <input id="regno" type="text" name="regno" value={data.regno} onChange={(e) => setData({ ...data, regno: e.target.value })} placeholder="SCII/00000/2010" className="input" />
+                                    <div className='regnoError'></div>
                                 </div>
                                 <div className="group">
                                     <label htmlFor="password" className="label">Password</label>
                                     <input id="password" type="password" name="password" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} className="input" data-type="password" />
+                                    <div className='passwordError'></div>
                                 </div>
 
                                 <br />
