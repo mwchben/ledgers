@@ -119,7 +119,7 @@ const registerCandidate = (req, res, next) => {
         })
         voter.save()
             .then(voter => {
-                res.json({ message: "You are now a candidate" })
+                res.json({ message: "Candidate registered! Login now..." })
             })
             .catch(error => {
                 //prev ->  res.json({ message: error })
@@ -150,6 +150,7 @@ const loginCandidate = (req, res, next) => {
                             message: "Candidate successfull login!",
                             token: token
                         })
+
                         // res.redirect('../../../vote-app/client/src/pages/Candidate')
                     }
                     else {
