@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
+var isErrorThere
 // const nameError = document.querySelector('.nameError');
 // const emailError = document.querySelector(".emailError");
 // const regnoError = document.querySelector(".regnoError");
@@ -33,7 +33,9 @@ export default function LogCandidate() {
     // console.log(data);
     //console.log(dataLog);
 
+
     function handleRegSubmit(e) {
+
         e.preventDefault()
 
         // nameError.textContent = '';
@@ -45,21 +47,31 @@ export default function LogCandidate() {
             name: data.name, email: data.email, regno: data.regno, password: data.password
         })
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 if (response.data.message) {
-                    const isError = response.data.message
-                    console.log(response.data.message);
+
+                    let er = response.data.message
+                    isErrorThere = er
+
+
+
                     // nameError.textContent = response.data.message.name;
                     // emailError.textContent = response.data.message.email;
                     // regnoError.textContent = response.data.message.regno;
                     // passwordError.textContent = response.data.message.password;
+
                 }
                 toast.info(response.data.message, {
                     position: toast.POSITION.TOP_CENTER
                 });
-
             })
+
     }
+
+
+
+
+
     function handleLogSubmit(e) {
         e.preventDefault()
         axios.post(URL_LOG, {
@@ -106,7 +118,7 @@ export default function LogCandidate() {
                                 <div className="group">
                                     <label htmlFor="name" className="label">Name</label>
                                     <input id="name" type="text" name="name" value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} placeholder="Firstname   lastname" className="input" />
-                                    <div className='nameError'></div>
+                                    {/* {isError.name ? <div className='nameError'>{isError.name}</div> : null} */}
                                 </div>
                                 <div className="group">
                                     <label htmlFor="email" className="label">TUK Email Address</label>
