@@ -1,4 +1,6 @@
-## Getting Started with Create React App
+## Local FE Web Apllication with UI
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -8,7 +10,7 @@ In the project directory, you will run:
 
 #### `npm start`
 
-THis will run the app in the development mode at default [http://localhost:3000](http://localhost:3000)
+This will run the app in the development mode at default [http://localhost:3000](http://localhost:3000)
 
 #### `npm test`
 
