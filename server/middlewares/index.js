@@ -1,7 +1,39 @@
+require("dotenv").config({ path: "./config.env" });
 const voterModel = require("../models/voterModel")
 const candidateModel = require("../models/candidateModel")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+
+//handle ERRORS!! 
+function handleError(error) {
+    console.log(error.message, error.code);
+    var errorValues = {
+        name: '',
+        email: '',
+        regno: '',
+        password: ''
+    }
+
+    if (error.code === 11000) {
+        errorValues.email = 'Email already registered';
+        return errorValues;
+    }
+
+    if (error.message.includes('candidate validation failed') || error.message.includes('voter validation failed')) {
+        Object.values(error.errors).forEach(({ properties }) => {
+            errorValues[properties.path] = properties.message;
+        })
+    }
+
+    return errorValues;
+}
+//create JWT token!!
+const expiry = 1 * 24 * 60 * 60;
+function createToken(email) {
+    //payload and headers hashed with this "process.env.JWTOKEN" to create the signature
+    return jwt.sign({ email }, process.env.JWTOKEN, { expiresIn: expiry })
+}
+
 
 //VOTER!!!
 //middleware to register wth req, res..................................................................
@@ -87,10 +119,13 @@ const registerCandidate = (req, res, next) => {
         })
         voter.save()
             .then(voter => {
-                res.json({ message: "You are now a candidate" })
+                res.json({ message: "Candidate registered! Login now..." })
             })
             .catch(error => {
-                res.json({ message: "An error occured!" })
+                //prev ->  res.json({ message: error })
+
+                const errors = handleError(error)
+                res.json({ message: errors })
             })
     })
 }
@@ -107,11 +142,15 @@ const loginCandidate = (req, res, next) => {
                         res.json({ error: err })
                     }
                     if (result) {
-                        let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
+                        //let tokend = jwt.sign({ regno: voter.regno }, process.env.JWTOKEN, { expiresIn: "1hr" })
+                        let token = createToken(voter.email);
+
+                        res.cookie('loginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
                         res.json({
                             message: "Candidate successfull login!",
                             token: token
                         })
+
                         // res.redirect('../../../vote-app/client/src/pages/Candidate')
                     }
                     else {

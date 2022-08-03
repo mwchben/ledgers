@@ -12,3 +12,31 @@ be included*
 
  1. Admin-IEBC (Director, details i.e., approve candidate for Ballot) + 
  2. Students (Login, Mani, Vote, Results)
+
+
+jwt will pass loged in user credentials, use them when placing vote and make public key the id to generate
+the private key (sign a tsPool)
+Blockchain vote API entity will be separate (with own PORT 3001 for API call)
+A miner entity will be separate (with own PORT 5001 for API call)
+
+//password not working
+//format toast for only the success and request failures, errors in input handled in the className form inputs ✔
+//ensure the errors customed made in the model creation here are seen in toast
+// https://mongoosejs.com/docs/validation.html
+
+if (response.data.message) {
+                    nameError.textContent = response.data.message.name;
+                    emailError.textContent = response.data.message.email;
+                    regnoError.textContent = response.data.message.regno;
+                    passwordError.textContent = response.data.message.password;
+                }
+
+                // nameError.textContent = '';
+        // emailError.textContent = '';
+        // regnoError.textContent = '';
+        // passwordError.textContent = '';
+
+
+        toast.info(response.data.message, {
+                    position: toast.POSITION.TOP_CENTER
+                });

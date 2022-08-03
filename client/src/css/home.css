@@ -186,6 +186,16 @@ input.valid {
 input.invalid {
   border-color: rgb(255, 0, 0);
 }
+
+.emailError,
+.nameError,
+.regnoError,
+.passwordError {
+  color: #fa255e;
+  margin: 5px 2px;
+  font-size: 0.7em;
+  font-weight: bold;
+}
 /*colors used: DEFAULT
 #000000
 #FA255E
