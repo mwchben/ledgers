@@ -51,7 +51,7 @@ const registerVoter = (req, res, next) => {
         })
         voter.save()
             .then(voter => {
-                res.json({ message: "Voter registered! Login now..." })
+                res.json({ success_msg: "Voter registered! Login now..." })
             })
             .catch(error => {
                 const errors = handleError(error)
@@ -120,7 +120,7 @@ const registerCandidate = (req, res, next) => {
         })
         voter.save()
             .then(voter => {
-                res.json({ message: "Candidate registered! Login now..." })
+                res.json({ success_msg: "Candidate registered! Login now..." })
             })
             .catch(error => {
                 const errors = handleError(error)

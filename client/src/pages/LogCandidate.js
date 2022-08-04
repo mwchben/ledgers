@@ -35,14 +35,13 @@ export default function LogCandidate() {
             name: data.name, email: data.email, regno: data.regno, password: data.password
         })
             .then(response => {
-                // console.log(response.data);
+                // console.log(response.data.message);
 
-                toast.success(JSON.stringify(response.data.message), {
+                toast.success(JSON.stringify(response.data.success_msg), {
                     position: toast.POSITION.TOP_CENTER
                 });
 
                 if (response.data.message) {
-                    console.log(response.data.message);
 
                     if (response.data.message.email) {
                         toast.error(JSON.stringify(response.data.message.email), {
