@@ -51,10 +51,11 @@ const registerVoter = (req, res, next) => {
         })
         voter.save()
             .then(voter => {
-                res.json({ message: "You are now a voter" })
+                res.json({ message: "Voter registered! Login now..." })
             })
             .catch(error => {
-                res.json({ message: "An err occured!" })
+                const errors = handleError(error)
+                res.json({ message: errors })
             })
     })
 }
@@ -122,8 +123,6 @@ const registerCandidate = (req, res, next) => {
                 res.json({ message: "Candidate registered! Login now..." })
             })
             .catch(error => {
-                //prev ->  res.json({ message: error })
-
                 const errors = handleError(error)
                 res.json({ message: errors })
             })
