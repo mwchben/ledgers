@@ -36,29 +36,34 @@ export default function LogCandidate() {
         })
             .then(response => {
                 // console.log(response.data);
+
+                toast.success(JSON.stringify(response.data.message), {
+                    position: toast.POSITION.TOP_CENTER
+                });
+
                 if (response.data.message) {
                     console.log(response.data.message);
 
                     if (response.data.message.email) {
-                        toast.info(JSON.stringify(response.data.message.email), {
+                        toast.error(JSON.stringify(response.data.message.email), {
                             position: toast.POSITION.TOP_CENTER
                         });
                     }
 
                     if (response.data.message.name) {
-                        toast.info(JSON.stringify(response.data.message.name), {
+                        toast.error(JSON.stringify(response.data.message.name), {
                             position: toast.POSITION.TOP_CENTER
                         });
                     }
 
                     if (response.data.message.regno) {
-                        toast.info(JSON.stringify(response.data.message.regno), {
+                        toast.error(JSON.stringify(response.data.message.regno), {
                             position: toast.POSITION.TOP_CENTER
                         });
                     }
 
                     if (response.data.message.password) {
-                        toast.info(JSON.stringify(response.data.message.password), {
+                        toast.error(JSON.stringify(response.data.message.password), {
                             position: toast.POSITION.TOP_CENTER
                         });
                     }
