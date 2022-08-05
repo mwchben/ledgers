@@ -115,14 +115,14 @@ const registerCandidate = (req, res, next) => {
         if (err) {
             res.json({ error: err })
         }
-        let voter = new candidateModel({
+        let candidate = new candidateModel({
             name: req.body.name,
             email: req.body.email,
             regno: req.body.regno,
             password: hashedPassword
         })
-        voter.save()
-            .then(voter => {
+        candidate.save()
+            .then(candidate => {
                 res.json({ success_msg: "You are registered! Login now..." })
             })
             .catch(error => {
@@ -137,15 +137,15 @@ const loginCandidate = (req, res, next) => {
     let password = req.body.password
 
     candidateModel.findOne({ email: email })
-        .then(voter => {
-            if (voter) {
-                bcrypt.compare(password, voter.password, function (err, result) {
+        .then(candidate => {
+            if (candidate) {
+                bcrypt.compare(password, candidate.password, function (err, result) {
                     if (err) {
                         res.json({ error: err })
                     }
                     if (result) {
                         //let tokend = jwt.sign({ regno: voter.regno }, process.env.JWTOKEN, { expiresIn: "1hr" })
-                        let token = createToken(voter.email);
+                        let token = createToken(candidate.email);
 
                         res.cookie('candidateLoginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
                         res.json({
