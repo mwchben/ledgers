@@ -34,32 +34,34 @@ export default function LogVoter() {
             .then(response => {
                 //console.log(response.data.message);
 
-                toast.success(JSON.stringify(response.data.success_msg), {
-                    position: toast.POSITION.TOP_CENTER
-                });
+                if (response.data.success_msg) {
+                    toast.success(JSON.stringify(response.data.success_msg).replace(/"/g, ''), {
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                }
 
                 if (response.data.message) {
 
                     if (response.data.message.email) {
-                        toast.error(JSON.stringify(response.data.message.email), {
+                        toast.error(JSON.stringify(response.data.message.email).replace(/"/g, ''), {
                             position: toast.POSITION.TOP_LEFT
                         });
                     }
 
                     if (response.data.message.name) {
-                        toast.error(JSON.stringify(response.data.message.name), {
+                        toast.error(JSON.stringify(response.data.message.name).replace(/"/g, ''), {
                             position: toast.POSITION.TOP_LEFT
                         });
                     }
 
                     if (response.data.message.regno) {
-                        toast.error(JSON.stringify(response.data.message.regno), {
+                        toast.error(JSON.stringify(response.data.message.regno).replace(/"/g, ''), {
                             position: toast.POSITION.TOP_LEFT
                         });
                     }
 
                     if (response.data.message.password) {
-                        toast.error(JSON.stringify(response.data.message.password), {
+                        toast.error(JSON.stringify(response.data.message.password).replace(/"/g, ''), {
                             position: toast.POSITION.TOP_LEFT
                         });
                     }
