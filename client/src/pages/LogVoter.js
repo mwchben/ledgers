@@ -74,7 +74,7 @@ export default function LogVoter() {
         e.preventDefault()
         axios.post(URL_LOG, {
             email: dataLog.email, password: dataLog.password
-        })
+        }, { withCredentials: true })
             .then(response => {
                 console.log(response.data);
                 toast.info(response.data.message, {
@@ -82,6 +82,7 @@ export default function LogVoter() {
                 });
             })
     }
+
 
     return (
         <>

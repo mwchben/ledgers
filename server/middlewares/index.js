@@ -51,7 +51,7 @@ const registerVoter = (req, res, next) => {
         })
         voter.save()
             .then(voter => {
-                res.json({ success_msg: "Voter registered! Login now..." })
+                res.json({ success_msg: "You are registered! Login now..." })
             })
             .catch(error => {
                 const errors = handleError(error)
@@ -72,7 +72,10 @@ const loginVoter = (req, res, next) => {
                         res.json({ error: err })
                     }
                     if (result) {
-                        let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
+                        //let token = jwt.sign({ regno: voter.regno }, "tokenValue", { expiresIn: "1hr" })
+                        let token = createToken(voter.email);
+
+                        res.cookie('voterLoginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
                         res.json({
                             message: "Voter successfull login!",
                             token: token
@@ -120,7 +123,7 @@ const registerCandidate = (req, res, next) => {
         })
         voter.save()
             .then(voter => {
-                res.json({ success_msg: "Candidate registered! Login now..." })
+                res.json({ success_msg: "You are registered! Login now..." })
             })
             .catch(error => {
                 const errors = handleError(error)
@@ -144,7 +147,7 @@ const loginCandidate = (req, res, next) => {
                         //let tokend = jwt.sign({ regno: voter.regno }, process.env.JWTOKEN, { expiresIn: "1hr" })
                         let token = createToken(voter.email);
 
-                        res.cookie('loginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
+                        res.cookie('candidateLoginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
                         res.json({
                             message: "Candidate successfull login!",
                             token: token
