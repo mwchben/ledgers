@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const voterModel = require("../models/voterModel")
-const authMiddleware = require("../middlewares/index")
+const indexMiddleware = require("../middlewares/index")
 
 
 
@@ -16,13 +16,13 @@ router.get("/", async (req, res) => {
 })
 
 //get one voter route { by Moderator}
-router.get("/:id", authMiddleware.getVoter, (req, res) => {
+router.get("/:id", indexMiddleware.getVoter, (req, res) => {
     res.json(res.voter)
 })
 
 //create a voter { SignUp } and { login }
-router.post("/reg", authMiddleware.registerVoter)
-router.post("/log", authMiddleware.loginVoter)
+router.post("/reg", indexMiddleware.registerVoter)
+router.post("/log", indexMiddleware.loginVoter)
 // router.post("/", registerVoter, async (req, res) => {
 //     try {
 //         const newVoter = await voterModel.create({
@@ -42,7 +42,7 @@ router.post("/log", authMiddleware.loginVoter)
 // })
 
 //delete a voter { By Moderator }
-router.delete("/:id", authMiddleware.getVoter, async (req, res) => {
+router.delete("/:id", indexMiddleware.getVoter, async (req, res) => {
     try {
         await res.voter.remove()
         res.json({ message: "deleted the voter" })

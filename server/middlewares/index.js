@@ -78,7 +78,8 @@ const loginVoter = (req, res, next) => {
                         res.cookie('voterLoginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
                         res.json({
                             message: "Voter successfull login!",
-                            token: token
+                            token: token,
+                            voter: voter._id
                         })
                     }
                     else {
@@ -147,11 +148,13 @@ const loginCandidate = (req, res, next) => {
                         //let tokend = jwt.sign({ regno: voter.regno }, process.env.JWTOKEN, { expiresIn: "1hr" })
                         let token = createToken(candidate.email);
 
-                        res.cookie('candidateLoginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
+                        res.cookie('candidateLoginJWT', token, { httpOnly: true, maxAge: expiry * 1000 })
                         res.json({
                             message: "Candidate successfull login!",
-                            token: token
+                            token: token,
+                            candidate: candidate._id
                         })
+
 
                         // res.redirect('../../../vote-app/client/src/pages/Candidate')
                     }

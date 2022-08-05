@@ -48,25 +48,25 @@ export default function LogCandidate() {
 
                     if (response.data.message.email) {
                         toast.error(JSON.stringify(response.data.message.email).replace(/"/g, ''), {
-                            position: toast.POSITION.TOP_CENTER
+                            position: toast.POSITION.TOP_LEFT
                         });
                     }
 
                     if (response.data.message.name) {
                         toast.error(JSON.stringify(response.data.message.name).replace(/"/g, ''), {
-                            position: toast.POSITION.TOP_CENTER
+                            position: toast.POSITION.TOP_LEFT
                         });
                     }
 
                     if (response.data.message.regno) {
                         toast.error(JSON.stringify(response.data.message.regno).replace(/"/g, ''), {
-                            position: toast.POSITION.TOP_CENTER
+                            position: toast.POSITION.TOP_LEFT
                         });
                     }
 
                     if (response.data.message.password) {
                         toast.error(JSON.stringify(response.data.message.password).replace(/"/g, ''), {
-                            position: toast.POSITION.TOP_CENTER
+                            position: toast.POSITION.TOP_LEFT
                         });
                     }
                 }

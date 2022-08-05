@@ -27,6 +27,6 @@ A miner entity will be separate (with own PORT 5001 for API call)
 //
 work on:
     1.authenticatng user not via local storage but cookies
-    2.remove the quotes on the toasts
+    2.remove the quotes on the toasts/////
     3.protected routes in react for those authenticated () youtube on liked videos
-    4.
+    4.Work on password validation
