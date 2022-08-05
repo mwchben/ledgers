@@ -24,19 +24,9 @@ A miner entity will be separate (with own PORT 5001 for API call)
 //ensure the errors customed made in the model creation here are seen in toast
 // https://mongoosejs.com/docs/validation.html
 
-if (response.data.message) {
-                    nameError.textContent = response.data.message.name;
-                    emailError.textContent = response.data.message.email;
-                    regnoError.textContent = response.data.message.regno;
-                    passwordError.textContent = response.data.message.password;
-                }
-
-                // nameError.textContent = '';
-        // emailError.textContent = '';
-        // regnoError.textContent = '';
-        // passwordError.textContent = '';
-
-
-        toast.info(response.data.message, {
-                    position: toast.POSITION.TOP_CENTER
-                });
+//
+work on:
+    1.authenticatng user not via local storage but cookies
+    2.remove the quotes on the toasts
+    3.protected routes in react for those authenticated () youtube on liked videos
+    4.
