@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const candidateModel = require("../models/candidateModel")
-const authMiddleware = require("../middlewares/index")
+const indexMiddleware = require("../middlewares/index")
 
 
 
@@ -16,17 +16,17 @@ router.get("/", async (req, res) => {
 })
 
 //get one candidate route { by Moderator}
-router.get("/:id", authMiddleware.getCandidate, (req, res) => {
+router.get("/:id", indexMiddleware.getCandidate, (req, res) => {
     res.json(res.candidate)
 })
 
 //create a candidate { SignUp } and { login }
-router.post("/reg", authMiddleware.registerCandidate)
-router.post("/log", authMiddleware.loginCandidate)
+router.post("/reg", indexMiddleware.registerCandidate)
+router.post("/log", indexMiddleware.loginCandidate)
 
 
 //delete a candidate { By Moderator }
-router.delete("/:id", authMiddleware.getCandidate, async (req, res) => {
+router.delete("/:id", indexMiddleware.getCandidate, async (req, res) => {
     try {
         await res.candidate.remove()
         res.json({ message: "deleted the candidate" })

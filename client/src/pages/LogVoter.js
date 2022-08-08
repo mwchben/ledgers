@@ -23,7 +23,7 @@ export default function LogVoter() {
         password: ""
     })
 
-    // console.log(data);
+
     console.log(dataLog);
 
     function handleRegSubmit(e) {
@@ -32,17 +32,49 @@ export default function LogVoter() {
             name: data.name, email: data.email, regno: data.regno, password: data.password
         })
             .then(response => {
-                console.log(response.data);
-                toast.info(response.data.message, {
-                    position: toast.POSITION.TOP_CENTER
-                });
+                //console.log(response.data.message);
+
+                if (response.data.success_msg) {
+                    toast.success(JSON.stringify(response.data.success_msg).replace(/"/g, ''), {
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                }
+
+                if (response.data.message) {
+
+                    if (response.data.message.email) {
+                        toast.error(JSON.stringify(response.data.message.email).replace(/"/g, ''), {
+                            position: toast.POSITION.TOP_LEFT
+                        });
+                    }
+
+                    if (response.data.message.name) {
+                        toast.error(JSON.stringify(response.data.message.name).replace(/"/g, ''), {
+                            position: toast.POSITION.TOP_LEFT
+                        });
+                    }
+
+                    if (response.data.message.regno) {
+                        toast.error(JSON.stringify(response.data.message.regno).replace(/"/g, ''), {
+                            position: toast.POSITION.TOP_LEFT
+                        });
+                    }
+
+                    if (response.data.message.password) {
+                        toast.error(JSON.stringify(response.data.message.password).replace(/"/g, ''), {
+                            position: toast.POSITION.TOP_LEFT
+                        });
+                    }
+                }
             })
     }
+
+
     function handleLogSubmit(e) {
         e.preventDefault()
         axios.post(URL_LOG, {
             email: dataLog.email, password: dataLog.password
-        })
+        }, { withCredentials: true })
             .then(response => {
                 console.log(response.data);
                 toast.info(response.data.message, {
@@ -50,6 +82,7 @@ export default function LogVoter() {
                 });
             })
     }
+
 
     return (
         <>

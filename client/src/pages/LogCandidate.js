@@ -7,11 +7,6 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-var isErrorThere
-// const nameError = document.querySelector('.nameError');
-// const emailError = document.querySelector(".emailError");
-// const regnoError = document.querySelector(".regnoError");
-// const passwordError = document.querySelector(".passwordError");
 
 export default function LogCandidate() {
 
@@ -30,46 +25,53 @@ export default function LogCandidate() {
         password: ""
     })
 
-    // console.log(data);
+    //console.log(data);
     //console.log(dataLog);
 
 
     function handleRegSubmit(e) {
-
         e.preventDefault()
-
-        // nameError.textContent = '';
-        // emailError.textContent = '';
-        // regnoError.textContent = '';
-        // passwordError.textContent = '';
-
         axios.post(URL_REG, {
             name: data.name, email: data.email, regno: data.regno, password: data.password
         })
             .then(response => {
-                // console.log(response.data);
+                // console.log(response.data.message);
+                if (response.data.success_msg) {
+                    toast.success(JSON.stringify(response.data.success_msg).replace(/"/g, ''), {
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                }
+
+
                 if (response.data.message) {
 
-                    let er = response.data.message
-                    isErrorThere = er
 
+                    if (response.data.message.email) {
+                        toast.error(JSON.stringify(response.data.message.email).replace(/"/g, ''), {
+                            position: toast.POSITION.TOP_LEFT
+                        });
+                    }
 
+                    if (response.data.message.name) {
+                        toast.error(JSON.stringify(response.data.message.name).replace(/"/g, ''), {
+                            position: toast.POSITION.TOP_LEFT
+                        });
+                    }
 
-                    // nameError.textContent = response.data.message.name;
-                    // emailError.textContent = response.data.message.email;
-                    // regnoError.textContent = response.data.message.regno;
-                    // passwordError.textContent = response.data.message.password;
+                    if (response.data.message.regno) {
+                        toast.error(JSON.stringify(response.data.message.regno).replace(/"/g, ''), {
+                            position: toast.POSITION.TOP_LEFT
+                        });
+                    }
 
+                    if (response.data.message.password) {
+                        toast.error(JSON.stringify(response.data.message.password).replace(/"/g, ''), {
+                            position: toast.POSITION.TOP_LEFT
+                        });
+                    }
                 }
-                toast.info(response.data.message, {
-                    position: toast.POSITION.TOP_CENTER
-                });
             })
-
     }
-
-
-
 
 
     function handleLogSubmit(e) {
