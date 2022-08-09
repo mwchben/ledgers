@@ -2,7 +2,7 @@ import '../App.css';
 import '../css/home.css'
 import { useState } from 'react';
 import axios from 'axios'
-import NavBar from '../components/NavBar';
+import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -86,7 +86,7 @@ export default function LogVoter() {
 
     return (
         <>
-            <NavBar />
+            <Navbar />
             <h3>Voter</h3>
             <div className="login-wrap">
                 <div className="login-html">
