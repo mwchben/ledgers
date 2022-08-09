@@ -9,13 +9,21 @@ const authJWT = (req, res, next) => {
         jwt.verify(voterToken, JWTOKEN, (err, decodedToken) => {
             if (err) {
                 console.log(err);
+                res.json({
+                    error: err
+                })
                 res.redirect('/login')
+
             } else {
                 console.log(decodedToken);
+                //can set the req.autheticated = true and access it in react from tutorial "Protected Routes in React _ Router Redirect _ React Router Dom _ React Tutorial .mp4"
                 next();
             }
         })
     } else {
+        res.json({
+            error: "not authenticated, login or register to access"
+        })
         res.redirect('/login')
     }
 }
