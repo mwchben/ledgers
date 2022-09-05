@@ -1,17 +1,10 @@
 import { Link } from "react-router-dom";
 
-import Student from "./pages/Student";
-import Candidate from "./pages/Candidate";
-import Moderator from "./pages/Moderator";
-
 
 function App() {
   return (
     <>
-      <Student />
-      <Candidate />
-      <Moderator />
-      {/* <div className="App"> 
+      <div className="App">
         <nav>
           <h3> I am a</h3>
           <Link to="/logCandidate">Candidate</Link> |{" "}
@@ -24,7 +17,7 @@ function App() {
             <li><a href='#' ><i className="bi bi-envelope-fill" style={{ fontSize: "2rem", color: "#000000" }}></i></a></li>
           </ul>
         </footer>
-      </div> */}
+      </div>
     </>
 
   );
