@@ -1,5 +1,5 @@
 // landing page
-
+import '../css/main.css'
 import { Link } from "react-router-dom";
 
 import React from "react";
@@ -7,8 +7,8 @@ import React from "react";
 export default function Home() {
     return (
         <>
-            <div className="h-screen lg:block flex items-center w-screen">
-                <div className="w-1/2 lg:w-full px-10 space-y-4">
+            <div className="h-screen lg:block flex items-center w-screen bg-slate-50">
+                <div className="w-1/2 lg:w-screen px-10 space-y-4">
                     <h1>
                         <b className="text-[#21846a] text-7xl">Vote</b><br />
                         <b className="text-text-neutral-900 text-7xl">for</b><br />
@@ -30,7 +30,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div id='gif' className="w-1/2 lg:w-full">
+                <div className="w-1/2 lg:w-screen">
                     <lottie-player src="https://assets4.lottiefiles.com/datafiles/WFfSsX8UQ9XlCP2ZdIqtIUaZjXl8pRK6ucYufety/Register to vote!/data.json" background="transparent" speed="1" loop autoplay></lottie-player>
                 </div>
             </div>

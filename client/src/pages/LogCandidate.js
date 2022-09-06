@@ -1,5 +1,5 @@
 import '../App.css';
-import '../css/home.css'
+import '../css/main.css'
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
