@@ -1,74 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<header class="p-3 bg-transparent text-white shadow-sm mb-5">
+  <div class="container">
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+    >
+      <ul
+        class="nav col-9 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 fs-4"
+      >
+        <li>
+          <a href="#actions" class="nav-link px-2 text-green scrollto"
+            >Actions</a
+          >
+        </li>
+        <li>
+          <a href="#candidates" class="nav-link px-2 text-green">Candidates</a>
+        </li>
+        <li><a href="#voters" class="nav-link px-2 text-green">Voters</a></li>
+        <li><a href="#tally" class="nav-link px-2 text-green">Tally</a></li>
+      </ul>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="Restaurant" content="Web App for QR Code based service" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Mukta&family=Prompt:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-      crossorigin="anonymous"
-    />
-
-    <link rel="stylesheet" href="/css/home.css" />
-
-    <title>
-      Candidate Page
-    </title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-
-    <div className="content">
-
-        <div id="home" className="container-fluid text-center">
-            <img src="https://pbs.twimg.com/profile_images/657824043/67.jpg" className="img-thumbnail" alt="candidate_image"></img>
-            <h3>Name</h3>
-            <p>You are registered as a candidate</p>
-            <div className="mb-3">
-                <label for="formFileSm" className="form-label">Upload PDF manifesto</label>
-                <input className="form-control form-control-sm" id="formFileSm" type="file" />
-            </div>
-            <blockquote>
-                <p>Your current vote is:</p>
-                <footer><b>78</b> of <b>90</b> </footer>
-            </blockquote>
-        </div>
-
+      <div class="text-end">
+        <h4>
+          <span class="badge site-green fs-4">Candidate</span>
+        </h4>
+      </div>
     </div>
+  </div>
+</header>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+<main class="container-md">
+  <article id="actions" class="blog-post site-bluish my-4 rounded-4 p-3">
+    <h3 class="blog-post-title mb-1">Moderator Actions</h3>
 
-            
+    <p>Available actions are:</p>
+    <dl>
+      <dt>Initiate blockchain voting session</dt>
+      <dd>
+        <button class="btn" style="background-color: rgb(148 163 184)">
+          Start
+        </button>
+      </dd>
+      <dt>To Candidates:</dt>
+      <dd>View List of Candidates who have applied</dd>
+      <dd>
+        Remove a candidate from the list (not known in SCIT or unqualified)
+      </dd>
+      <dt>To Voters:</dt>
+      <dd>View List of Voters who have Registered</dd>
+      <dd>Remove a voter from the list (not known in SCIT)</dd>
+    </dl>
+  </article>
+
+  <article id="candidates" class="blog-post site-bluish rounded-4 my-4 p-3">
+    <h3 class="blog-post-title mb-1">Registered SCIT Candidates</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Registration Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice</td>
+          <td>trial@gmail.com</td>
+          <td>SCCI/00222/2018</td>
+        </tr>
+        <tr>
+          <td>Bob</td>
+          <td>trial2@gmail.com</td>
+          <td>SCCI/00111/2018</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><b>NB:</b> This is a recent copy, refresh page incase of updates</p>
+  </article>
+
+  <article id="voters" class="blog-post site-bluish rounded-4 my-4 p-3">
+    <h3 class="blog-post-title mb-1">Registered SCIT Voters</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Registration Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice</td>
+          <td>trial@gmail.com</td>
+          <td>SCCI/00222/2018</td>
+        </tr>
+        <tr>
+          <td>Bob</td>
+          <td>trial2@gmail.com</td>
+          <td>SCCI/00111/2018</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><b>NB:</b> This is a recent copy, refresh page incase of updates</p>
+  </article>
+
+  <article id="tally" class="site-bluish rounded-4 my-4 p-3">
+    <h3 class="blog-post-title mb-1">Total Tallies</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Bob</td>
+          <td>4</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</main>
