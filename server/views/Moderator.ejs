@@ -1,109 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<header class="p-3 bg-transparent text-white shadow-sm mb-5">
+  <div class="container">
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+    >
+      <ul
+        class="nav col-9 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 fs-4"
+      >
+        <li>
+          <a href="#actions" class="nav-link px-2 text-green scrollto"
+            >Actions</a
+          >
+        </li>
+        <li>
+          <a href="#candidates" class="nav-link px-2 text-green">Candidates</a>
+        </li>
+        <li><a href="#voters" class="nav-link px-2 text-green">Voters</a></li>
+        <li><a href="#tally" class="nav-link px-2 text-green">Tally</a></li>
+      </ul>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="Restaurant" content="Web App for QR Code based service" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Mukta&family=Prompt:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-      crossorigin="anonymous"
-    />
-
-    <link rel="stylesheet" href="/css/home.css" />
-
-    <title>
-      Candidate Page
-    </title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-
-    <div className="main">
-        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-            <li className="nav-item" role="presentation">
-                <a class="nav-link active" id="actions-tab" data-bs-toggle="tab" data-bs-target="#actions-tab-pane" type="button" role="tab" aria-controls="actions-tab-pane" aria-selected="true" href="#">
-                    <i class="bi bi-grid-3x3-gap-fill" />
-                    <br />Actions
-                </a>
-            </li>
-            <li className="nav-item" role="presentation">
-                <a class="nav-link" id="voters-tab" data-bs-toggle="tab" data-bs-target="#voters-tab-pane" type="button" role="tab" aria-controls="voters-tab-pane" aria-selected="true" href="#">
-                    <i class="bi bi-people-fill" />
-                    <br />Voters
-                </a>
-            </li>
-            <li className="nav-item" role="presentation">
-                <a class="nav-link" id="votes-tab" data-bs-toggle="tab" data-bs-target="#votes-tab-pane" type="button" role="tab" aria-controls="votes-tab-pane" aria-selected="true" href="#">
-                    <i class="bi bi-123" />
-                    <br />Votes
-                </a>
-            </li>
-        </ul>
+      <div class="text-end">
+        <h4>
+          <span class="badge site-green fs-4">Moderator</span>
+        </h4>
+      </div>
     </div>
+  </div>
+</header>
 
-    <div class="tab-content content" id="myTabContent">
-        <div class="tab-pane fade show active" id="actions-tab-pane" role="tabpanel" aria-labelledby="actions-tab" tabindex="0">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas erat imperdiet sed euismod nisi. Blandit aliquam etiam erat velit. Lectus urna duis convallis convallis tellus. Dui sapien eget mi proin sed. Consequat id porta nibh venenatis cras sed felis eget. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Sit amet consectetur adipiscing elit pellentesque habitant morbi. Neque convallis a cras semper auctor. Et magnis dis parturient montes nascetur ridiculus mus.
+<main class="container-md">
+  <article id="actions" class="blog-post site-bluish my-4 p-3">
+    <h3 class="blog-post-title mb-1">Moderator Actions</h3>
 
-                Egestas congue quisque egestas diam in arcu. Enim ut tellus elementum sagittis vitae et. Lacus viverra vitae congue eu. Posuere ac ut consequat semper viverra nam libero justo. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Amet cursus sit amet dictum. Orci a scelerisque purus semper eget duis at tellus. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Euismod lacinia at quis risus sed. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Elit ullamcorper dignissim cras tincidunt lobortis. Sit amet risus nullam eget felis eget nunc lobortis mattis. Urna duis convallis convallis tellus.
+    <p>Available actions are:</p>
+    <dl>
+      <dt>Initiate blockchain voting session</dt>
+      <dd>
+        <button class="btn" style="background-color: rgb(148 163 184)">
+          Start
+        </button>
+      </dd>
+      <dt>To Candidates:</dt>
+      <dd>View List of Candidates who have applied</dd>
+      <dd>
+        Remove a candidate from the list (not known in SCIT or unqualified)
+      </dd>
+      <dt>To Voters:</dt>
+      <dd>View List of Voters who have Registered</dd>
+      <dd>Remove a voter from the list (not known in SCIT)</dd>
+    </dl>
+  </article>
 
-                Cursus turpis massa tincidunt dui ut ornare lectus. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Nunc sed id semper risus in hendrerit gravida rutrum. Congue quisque egestas diam in arcu cursus euismod. Vitae tortor condimentum lacinia quis vel eros donec. Mauris pharetra et ultrices neque ornare. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit. Aliquet enim tortor at auctor urna. In iaculis nunc sed augue lacus viverra vitae congue eu. Gravida rutrum quisque non tellus. Gravida in fermentum et sollicitudin ac.
-            </p>
-        </div>
-        <div class="tab-pane fade" id="voters-tab-pane" role="tabpanel" aria-labelledby="voters-tab" tabindex="0">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas erat imperdiet sed euismod nisi. Blandit aliquam etiam erat velit. Lectus urna duis convallis convallis tellus. Dui sapien eget mi proin sed. Consequat id porta nibh venenatis cras sed felis eget. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Sit amet consectetur adipiscing elit pellentesque habitant morbi. Neque convallis a cras semper auctor. Et magnis dis parturient montes nascetur ridiculus mus.
+  <article id="candidates" class="blog-post site-bluish my-4 p-3">
+    <h2 class="blog-post-title mb-1">Candidates</h2>
 
-                Egestas congue quisque egestas diam in arcu. Enim ut tellus elementum sagittis vitae et. Lacus viverra vitae congue eu. Posuere ac ut consequat semper viverra nam libero justo. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Amet cursus sit amet dictum. Orci a scelerisque purus semper eget duis at tellus. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Euismod lacinia at quis risus sed. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Elit ullamcorper dignissim cras tincidunt lobortis. Sit amet risus nullam eget felis eget nunc lobortis mattis. Urna duis convallis convallis tellus.
+    <p>
+      This is some additional paragraph placeholder content. It has been written
+      to fill the available space and show how a longer snippet of text affects
+      the surrounding content. We'll repeat it often to keep the demonstration
+      flowing, so be on the lookout for this exact same string of text.
+    </p>
+    <blockquote>
+      <p>
+        Longer quote goes here, maybe with some
+        <strong>emphasized text</strong> in the middle of it.
+      </p>
+    </blockquote>
+    <p>
+      This is some additional paragraph placeholder content. It has been written
+      to fill the available space and show how a longer snippet of text affects
+      the surrounding content. We'll repeat it often to keep the demonstration
+      flowing, so be on the lookout for this exact same string of text.
+    </p>
+    <h3>Example table</h3>
+    <p>And don't forget about tables in these posts:</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Upvotes</th>
+          <th>Downvotes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice</td>
+          <td>10</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>Bob</td>
+          <td>4</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Charlie</td>
+          <td>7</td>
+          <td>9</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Totals</td>
+          <td>21</td>
+          <td>23</td>
+        </tr>
+      </tfoot>
+    </table>
 
-                Cursus turpis massa tincidunt dui ut ornare lectus. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Nunc sed id semper risus in hendrerit gravida rutrum. Congue quisque egestas diam in arcu cursus euismod. Vitae tortor condimentum lacinia quis vel eros donec. Mauris pharetra et ultrices neque ornare. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit. Aliquet enim tortor at auctor urna. In iaculis nunc sed augue lacus viverra vitae congue eu. Gravida rutrum quisque non tellus. Gravida in fermentum et sollicitudin ac.
-            </p>
-        </div>
-        <div class="tab-pane fade" id="votes-tab-pane" role="tabpanel" aria-labelledby="votes-tab" tabindex="0">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas erat imperdiet sed euismod nisi. Blandit aliquam etiam erat velit. Lectus urna duis convallis convallis tellus. Dui sapien eget mi proin sed. Consequat id porta nibh venenatis cras sed felis eget. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Sit amet consectetur adipiscing elit pellentesque habitant morbi. Neque convallis a cras semper auctor. Et magnis dis parturient montes nascetur ridiculus mus.
+    <p>
+      This is some additional paragraph placeholder content. It's a slightly
+      shorter version of the other highly repetitive body text used throughout.
+    </p>
+  </article>
 
-                Egestas congue quisque egestas diam in arcu. Enim ut tellus elementum sagittis vitae et. Lacus viverra vitae congue eu. Posuere ac ut consequat semper viverra nam libero justo. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Amet cursus sit amet dictum. Orci a scelerisque purus semper eget duis at tellus. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Euismod lacinia at quis risus sed. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Elit ullamcorper dignissim cras tincidunt lobortis. Sit amet risus nullam eget felis eget nunc lobortis mattis. Urna duis convallis convallis tellus.
+  <article id="voters" class="blog-post site-bluish my-4 p-3">
+    <h2 class="blog-post-title mb-1">Voters</h2>
 
-                Cursus turpis massa tincidunt dui ut ornare lectus. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Nunc sed id semper risus in hendrerit gravida rutrum. Congue quisque egestas diam in arcu cursus euismod. Vitae tortor condimentum lacinia quis vel eros donec. Mauris pharetra et ultrices neque ornare. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit. Aliquet enim tortor at auctor urna. In iaculis nunc sed augue lacus viverra vitae congue eu. Gravida rutrum quisque non tellus. Gravida in fermentum et sollicitudin ac.
-            </p>
-        </div>
-    </div>
+    <p>
+      This is some additional paragraph placeholder content. It has been written
+      to fill the available space and show how a longer snippet of text affects
+      the surrounding content. We'll repeat it often to keep the demonstration
+      flowing, so be on the lookout for this exact same string of text.
+    </p>
+    <ul>
+      <li>First list item</li>
+      <li>Second list item with a longer description</li>
+      <li>Third list item to close it out</li>
+    </ul>
+    <p>
+      This is some additional paragraph placeholder content. It's a slightly
+      shorter version of the other highly repetitive body text used throughout.
+    </p>
+  </article>
 
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
-            
+  <article id="tally" class="site-bluish my-4 p-3">
+    <h2 class="blog-post-title mb-1">Total Tallies</h2>
+  </article>
+</main>
