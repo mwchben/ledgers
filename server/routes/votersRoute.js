@@ -14,7 +14,7 @@ router.post("/log", indexMiddleware.loginVoter)
 /*
     get voter page
 */
-router.get("/votersDashboard", voterController.get)
+router.get("/dashboard", voterController.get)
 
 /*
     get one voter route { by Moderator}

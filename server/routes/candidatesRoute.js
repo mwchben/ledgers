@@ -14,12 +14,11 @@ router.post("/log", indexMiddleware.loginCandidate)
 /*
     get candidate page
 */
-router.get("/candidatesDashboard", candidateController.get)
+router.get("/dashboard", candidateController.get)
 
 /*
     get one candidate route { by Moderator}
 */
-
 router.get("/:id", indexMiddleware.getCandidate, (req, res) => {
     res.json(res.candidate)
 })
