@@ -14,10 +14,7 @@ const votersRoute = require("./routes/votersRoute")
 const moderatorRoute = require("./routes/moderatorRoute")
 const candidatesRoute = require("./routes/candidatesRoute")
 
-
-//middleware from installed packages
 app.use(cookieParser());
-
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(expressLayouts)
 
@@ -44,9 +41,9 @@ app.use(express.json());
 /*
     routes used:
 */
-app.use('/votersDashboard', votersRoute)
-app.use('/candidatesDashboard', candidatesRoute)
-app.use("/", moderatorRoute)
+app.use('/voters', votersRoute)
+app.use('/candidates', candidatesRoute)
+app.use('/', moderatorRoute)
 
 
 
