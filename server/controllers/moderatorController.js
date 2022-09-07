@@ -1,3 +1,3 @@
 exports.get = async (req, res) => {
-    res.render('moderator')
+    res.render('moderator', { title: 'Moderator Interface' })
 }
