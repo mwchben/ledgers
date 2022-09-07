@@ -1,5 +1,7 @@
 const express = require("express");
 const db = require("./dbconnect")
+const expressLayouts = require('express-ejs-layouts')
+const path = require('path')
 
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
@@ -16,6 +18,13 @@ const candidatesRoute = require("./routes/candidatesRoute")
 //middleware from packages
 app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(expressLayouts)
+
+app.set('views', path.join(__dirname, '/views'));
+app.set('view engine', 'ejs')
+
+
 const corsOptions = {
     //To allow requests from client changes to revert are in:
     //1. https://github.com/mwchben/blockchain-vote-app/commit/6b20009c80244fb177bd8b8bd1f9861b6158bccc
@@ -30,9 +39,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-//middleware for requests::
+//routes used:
 app.use("/voters/", votersRoute)
 app.use("/candidates/", candidatesRoute)
-app.use("/moderator/", moderatorRoute)
+app.use("/", moderatorRoute)
+
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
