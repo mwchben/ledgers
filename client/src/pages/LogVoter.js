@@ -79,6 +79,9 @@ export default function LogVoter() {
                 toast.info(response.data.message, {
                     position: toast.POSITION.TOP_CENTER
                 });
+                // if (response.data.user) {
+
+                // }
             })
     }
 
