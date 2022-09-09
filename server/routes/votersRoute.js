@@ -3,6 +3,7 @@ const router = express.Router()
 const voterModel = require("../models/voterModel")
 const indexMiddleware = require("../middlewares/index")
 const voterController = require('../controllers/voterController')
+const { authVoterJWT } = require('../middlewares/authVoter')
 
 
 /*
