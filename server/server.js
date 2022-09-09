@@ -13,6 +13,9 @@ const PORT = process.env.HTTP_PORT || 8000;
 const votersRoute = require("./routes/votersRoute")
 const moderatorRoute = require("./routes/moderatorRoute")
 const candidatesRoute = require("./routes/candidatesRoute")
+const homeRoute = require("./routes/homeRoute")
+const candidateLogRoute = require("./routes/candidateLogRoute")
+const voterLogRoute = require("./routes/voterLogRoute")
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')))
@@ -43,7 +46,10 @@ app.use(express.json());
 */
 app.use('/voters', votersRoute)
 app.use('/candidates', candidatesRoute)
-app.use('/', moderatorRoute)
+app.use('/moderator', moderatorRoute)
+app.use('/', homeRoute)
+app.use('/voterLog', voterLogRoute)
+app.use('/candidateLog', candidateLogRoute)
 
 
 
