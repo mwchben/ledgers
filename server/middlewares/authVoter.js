@@ -1,18 +1,18 @@
 require("dotenv").config({ path: "./config.env" });
 const jwt = require("jsonwebtoken")
 
-const authJWT = (req, res, next) => {
+const voterAuthJWT = (req, res, next) => {
     const voterToken = req.cookie.voterLoginJWT;
-    const candidateToken = req.cookie.candidateLoginJWT;
+    //const voterToken = req.headers.authorization.split('')[1]
 
-    if (voterToken || candidateToken) { //remove the identification (either voter or candidate) on JWT or look for method for both verification 
+    if (voterToken) {
         jwt.verify(voterToken, JWTOKEN, (err, decodedToken) => {
             if (err) {
                 console.log(err);
                 res.json({
                     error: err
                 })
-                res.redirect('/login')
+                res.redirect('/voterLog')
 
             } else {
                 console.log(decodedToken);
@@ -24,8 +24,8 @@ const authJWT = (req, res, next) => {
         res.json({
             error: "not authenticated, login or register to access"
         })
-        res.redirect('/login')
+        res.redirect('/voterLog')
     }
 }
 
-module.exports = { authJWT };
+module.exports = { voterAuthJWT };
