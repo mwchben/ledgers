@@ -46,7 +46,7 @@ app.use(express.json());
 */
 app.use('/voters', votersRoute)
 app.use('/candidates', candidatesRoute)
-app.use('/moderator', moderatorRoute)
+app.use('/moderatorDashboard', moderatorRoute)
 app.use('/', homeRoute)
 app.use('/voterLog', voterLogRoute)
 app.use('/candidateLog', candidateLogRoute)
