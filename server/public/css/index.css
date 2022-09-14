@@ -43,3 +43,11 @@ reg/login
   --bs-btn-active-bg: #21846a;
   --bs-btn-active-border-color: #21846a;
 }
+
+/*
+lottie
+*/
+.lottie {
+  height: 90%;
+  width: 90%;
+}
