@@ -41,20 +41,28 @@
         role="tabpanel"
         aria-labelledby="tab-login"
       >
-        <form>
+        <form class="form-login">
           <div class="form-outline mb-4">
             <label class="form-label" for="loginName">TUK Email</label>
             <input
               type="email"
-              id="loginName"
+              id="email"
+              name="email"
               class="form-control"
               placeholder="voter@students.tukenya.ac.ke"
             />
+            <div class="email-error"></div>
           </div>
 
           <div class="form-outline mb-4">
             <label class="form-label" for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" class="form-control" />
+            <input
+              type="password"
+              id="password"
+              name="name"
+              class="form-control"
+            />
+            <div class="password-error"></div>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block mb-4">
@@ -74,25 +82,29 @@
         role="tabpanel"
         aria-labelledby="tab-register"
       >
-        <form>
+        <form class="form-register">
           <div class="form-outline mb-4">
             <label class="form-label" for="registerName">Name</label>
             <input
               type="text"
-              id="registerName"
+              id="name"
+              name="name"
               class="form-control"
               placeholder="Firstname    Lastname"
             />
+            <div class="name-error"></div>
           </div>
 
           <div class="form-outline mb-4">
             <label class="form-label" for="registerUsername">TUK Email</label>
             <input
-              type="text"
-              id="registerUsername"
+              type="email"
+              id="email"
+              name="email"
               class="form-control"
               placeholder="voter@students.tukenya.ac.ke"
             />
+            <div class="email-error"></div>
           </div>
 
           <div class="form-outline mb-4">
@@ -100,16 +112,24 @@
               >Registration Number</label
             >
             <input
-              type="email"
-              id="registerEmail"
+              type="text"
+              id="regno"
+              name="regno"
               class="form-control"
               placeholder="SCCI/00000/2000"
             />
+            <div class="registration-error"></div>
           </div>
 
           <div class="form-outline mb-4">
             <label class="form-label" for="registerPassword">Password</label>
-            <input type="password" id="registerPassword" class="form-control" />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+            />
+            <div class="password-error"></div>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block mb-3">
@@ -120,3 +140,27 @@
     </div>
   </div>
 </div>
+
+<script>
+  const formLogin = document.querySelector(".form-login");
+  formLogin.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = formLogin.email.value;
+    const password = formLogin.password.value;
+
+    console.log(email, password);
+  });
+
+  const formRegister = document.querySelector(".form-register");
+  formRegister.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = formRegister.name.value;
+    const email = formRegister.email.value;
+    const regno = formRegister.regno.value;
+    const password = formRegister.password.value;
+
+    console.log(name, email, regno, password);
+  });
+</script>
