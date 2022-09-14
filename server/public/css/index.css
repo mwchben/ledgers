@@ -23,3 +23,23 @@ body {
 .nav-link:hover {
   color: #84213b;
 }
+
+/*
+reg/login
+*/
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--bs-nav-pills-link-active-color);
+  background-color: #84213b;
+}
+.nav-link {
+  color: #84213b;
+}
+.btn {
+  --bs-btn-border-color: #84213b;
+  --bs-btn-hover-border-color: #21846a;
+  background-color: #84213b;
+  --bs-btn-hover-bg: #21846a;
+  --bs-btn-active-bg: #21846a;
+  --bs-btn-active-border-color: #21846a;
+}
