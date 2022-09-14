@@ -1,62 +1,122 @@
-<div className='bg-slate-50'>
-    <h3 className='text-center text-black font-semibold font-sans text-5xl py-4'>Voter</h3>
-    <div className="login-wrap">
-        <div className="login-html bg-slate-100">
+<p class="text-center mt-4 text-red fw-semibold fs-2">Voter (Login/Register)</p>
+<div class="mx-4 my-5 my-5">
+  <div class="col-lg-6 mx-auto">
+    <!-- navs -->
+    <ul class="nav nav-pills nav-justified mb-5" id="ex1" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="tab-login"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-login"
+          role="tab"
+          aria-controls="pills-login"
+          aria-selected="true"
+        >
+          Login
+        </button>
+      </li>
 
-            <input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked /><label htmlFor="tab-1" className="tab">Log In</label>
-            <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">Register</label>
-            <div className="login-form">
-                <div className="sign-in-htm">
-                    <form >
-                        <div className="group">
-                            <label htmlFor="email" className="label">TUK Email Address</label>
-                            <input id="email" type="email" name="email" value={dataLog.email}  />
-                        </div>
-                        <div className="group">
-                            <label htmlFor="password" className="label">Password</label>
-                            <input id="password" type="password" name="password" value={dataLog.password}  />
-                        </div>
-                        <div className="group">
-                            <input type="submit" className="button text-white" value="Login" />
-                        </div>
-                    </form>
-                    <div className="hr"></div>
-                    <div className="foot-lnk">
-                        <div className="group">
-                            <Link className="button text-white" to="/">Back</Link>
-                        </div>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="tab-register"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-register"
+          role="tab"
+          aria-controls="pills-register"
+          aria-selected="false"
+        >
+          Register
+        </button>
+      </li>
+    </ul>
+    <!--  navs -->
 
-                    </div>
-                </div>
+    <!-- Login -->
+    <div class="tab-content fw-semibold">
+      <div
+        class="tab-pane fade show active"
+        id="pills-login"
+        role="tabpanel"
+        aria-labelledby="tab-login"
+      >
+        <form>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="loginName">TUK Email</label>
+            <input
+              type="email"
+              id="loginName"
+              class="form-control"
+              placeholder="voter@students.tukenya.ac.ke"
+            />
+          </div>
 
-                <div className="sign-up-htm">
-                    <form >
-                        <div className="group">
-                            <label htmlFor="name" className="label">Name</label>
-                            <input id="name" type="text" name="name" value={data.name}  />
-                        </div>
-                        <div className="group">
-                            <label htmlFor="email" className="label">TUK Email Address</label>
-                            <input id="email" type="email" name="email" value={data.email}  />
-                        </div>
-                        <div className="group">
-                            <label htmlFor="regno" className="label">Registration Number</label>
-                            <input id="regno" type="text" name="regno" value={data.regno}  />
-                        </div>
-                        <div className="group">
-                            <label htmlFor="password" className="label">Password</label>
-                            <input id="password" type="password" name="password" value={data.password}  />
-                        </div>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" class="form-control" />
+          </div>
 
+          <button type="submit" class="btn btn-primary btn-block mb-4">
+            Login
+          </button>
 
-                        <div className="group">
-                            <input type="submit" className="button text-white" value="Register" />
-                        </div>
-                    </form>
-                </div>
+          <div class="text-center">
+            <p>Register if not yet</p>
+          </div>
+        </form>
+      </div>
 
-            </div>
+      <!-- Register -->
+      <div
+        class="tab-pane fade"
+        id="pills-register"
+        role="tabpanel"
+        aria-labelledby="tab-register"
+      >
+        <form>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="registerName">Name</label>
+            <input
+              type="text"
+              id="registerName"
+              class="form-control"
+              placeholder="Firstname    Lastname"
+            />
+          </div>
 
-        </div>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="registerUsername">TUK Email</label>
+            <input
+              type="text"
+              id="registerUsername"
+              class="form-control"
+              placeholder="voter@students.tukenya.ac.ke"
+            />
+          </div>
+
+          <div class="form-outline mb-4">
+            <label class="form-label" for="registerEmail"
+              >Registration Number</label
+            >
+            <input
+              type="email"
+              id="registerEmail"
+              class="form-control"
+              placeholder="SCCI/00000/2000"
+            />
+          </div>
+
+          <div class="form-outline mb-4">
+            <label class="form-label" for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" class="form-control" />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block mb-3">
+            Register
+          </button>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
