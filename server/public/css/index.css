@@ -43,6 +43,26 @@ reg/login
   --bs-btn-active-bg: #21846a;
   --bs-btn-active-border-color: #21846a;
 }
+/*
+errors in login/reg
+*/
+.name-error,
+.emailReg-error,
+.emailLog-error,
+.regno-error,
+.passwordReg-error,
+.passwordLog-error {
+  color: #ff0055;
+  margin: 10px 2px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.reg-success {
+  color: #21846a;
+  margin: 10px 2px;
+  font-size: 1em;
+  font-weight: bold;
+}
 
 /*
 lottie
