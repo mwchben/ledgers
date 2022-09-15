@@ -46,23 +46,24 @@
             <label class="form-label" for="loginName">TUK Email</label>
             <input
               type="email"
-              id="email"
+              id="emailLog"
               name="email"
               class="form-control"
               placeholder="voter@students.tukenya.ac.ke"
             />
-            <div class="email-error"></div>
+            <div class="emailLog-error"></div>
           </div>
 
           <div class="form-outline mb-4">
             <label class="form-label" for="loginPassword">Password</label>
             <input
               type="password"
-              id="password"
-              name="name"
+              id="passwordLog"
+              name="password"
               class="form-control"
             />
-            <div class="password-error"></div>
+            <div class="passwordLog-error"></div>
+            <div class="reg-success"></div>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block mb-4">
@@ -96,19 +97,19 @@
           </div>
 
           <div class="form-outline mb-4">
-            <label class="form-label" for="registerUsername">TUK Email</label>
+            <label class="form-label" for="registerEmail">TUK Email</label>
             <input
               type="email"
-              id="email"
+              id="emailReg"
               name="email"
               class="form-control"
               placeholder="voter@students.tukenya.ac.ke"
             />
-            <div class="email-error"></div>
+            <div class="emailReg-error"></div>
           </div>
 
           <div class="form-outline mb-4">
-            <label class="form-label" for="registerEmail"
+            <label class="form-label" for="registerRegistrationNumber"
               >Registration Number</label
             >
             <input
@@ -116,20 +117,21 @@
               id="regno"
               name="regno"
               class="form-control"
-              placeholder="SCCI/00000/2000"
+              placeholder="SCII/00000/2000 or SCCI/00000/2000 or SCCJ/00000/2000"
             />
-            <div class="registration-error"></div>
+            <div class="regno-error"></div>
           </div>
 
           <div class="form-outline mb-4">
             <label class="form-label" for="registerPassword">Password</label>
             <input
               type="password"
-              id="password"
+              id="passwordReg"
               name="password"
               class="form-control"
             />
-            <div class="password-error"></div>
+            <div class="passwordReg-error"></div>
+            <div class="reg-success"></div>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block mb-3">
@@ -143,24 +145,89 @@
 
 <script>
   const formLogin = document.querySelector(".form-login");
-  formLogin.addEventListener("submit", (e) => {
+  let nameError = document.querySelector(".name-error");
+  let emailError = document.querySelector(".emailReg-error");
+  let emailErrorLog = document.querySelector(".emailLog-error");
+  let regnoError = document.querySelector(".regno-error");
+  let passwordError = document.querySelector(".passwordReg-error");
+  let passwordErrorLog = document.querySelector(".passwordLog-error");
+  let regSuccess = document.querySelector(".reg-success");
+
+  formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    //reset errors
+    emailErrorLog.textContent = "";
+    passwordErrorLog.textContent = "";
 
     const email = formLogin.email.value;
     const password = formLogin.password.value;
 
-    console.log(email, password);
+    try {
+      const response = await fetch("/voters/log", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const data = await response.json();
+      console.log(data);
+
+      //update errors
+      if (data.errors) {
+        emailErrorLog.textContent = data.errors.email;
+        passwordErrorLog.textContent = data.errors.password;
+      }
+      if (data.message) {
+        regSuccess.textContent = data.message;
+      }
+      if (data.voter) {
+        location.assign("/voters/dashboard");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   });
 
   const formRegister = document.querySelector(".form-register");
-  formRegister.addEventListener("submit", (e) => {
+
+  formRegister.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    //reset errors
+    nameError.textContent = "";
+    emailError.textContent = "";
+    regnoError.textContent = "";
+    passwordError.textContent = "";
+    regSuccess.textContent = "";
 
     const name = formRegister.name.value;
     const email = formRegister.email.value;
     const regno = formRegister.regno.value;
     const password = formRegister.password.value;
 
-    console.log(name, email, regno, password);
+    try {
+      const response = await fetch("/voters/reg", {
+        method: "POST",
+        body: JSON.stringify({ name, email, regno, password }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const data = await response.json();
+      console.log(data);
+
+      //update errors
+      if (data.errors) {
+        nameError.textContent = data.errors.name;
+        emailError.textContent = data.errors.email;
+        regnoError.textContent = data.errors.regno;
+        passwordError.textContent = data.errors.password;
+      }
+      if (data.success_msg) {
+        regSuccess.textContent = data.success_msg;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   });
 </script>
