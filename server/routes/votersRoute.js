@@ -3,7 +3,8 @@ const router = express.Router()
 const voterModel = require("../models/voterModel")
 const indexMiddleware = require("../middlewares/index")
 const voterController = require('../controllers/voterController')
-const { authVoterJWT } = require('../middlewares/authVoter')
+const voterAuthJWT = require('../middlewares/authVoter')
+const checkUser = require('../middlewares/checkVoter')
 
 
 /*
@@ -13,9 +14,10 @@ router.post("/reg", indexMiddleware.registerVoter)
 router.post("/log", indexMiddleware.loginVoter)
 
 /*
-    get voter page
+    get voter pages
 */
-router.get("/dashboard", voterController.get)
+router.get("/dashboard", voterAuthJWT, checkUser, voterController.get_dash)
+router.get("/logout", voterController.get_home)
 
 /*
     get one voter route { by Moderator}
