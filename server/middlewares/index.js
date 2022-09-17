@@ -49,9 +49,9 @@ create JWT token
 */
 
 const expiry = 1 * 24 * 60 * 60;
-function createToken(email) {
+function createToken(id) {
     //payload and headers hashed with this "process.env.JWTOKEN" to create the signature
-    return jwt.sign({ email }, process.env.JWTOKEN, { expiresIn: expiry })
+    return jwt.sign({ id }, process.env.JWTOKEN, { expiresIn: expiry })
 }
 
 
@@ -86,7 +86,7 @@ const loginVoter = async (req, res, next) => {
 
     try {
         const voter = await voterModel.login(email, password)
-        let token = createToken(voter.email);
+        let token = createToken(voter._id);
         res.cookie('voterLoginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
         res.json({
             message: "Voter successfull login!",
