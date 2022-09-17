@@ -1,4 +1,4 @@
-<header class="p-3 bg-transparent text-white shadow-sm mb-5">
+<header class="p-3 bg-transparent shadow-sm mb-5">
   <div class="container">
     <div
       class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
@@ -11,11 +11,14 @@
         </li>
         <li><a href="#vote" class="nav-link px-2 text-green">Voters</a></li>
         <li><a href="#tally" class="nav-link px-2 text-green">Tally</a></li>
+        <li>
+          <a href="/voters/logout" class="nav-link px-2 text-red">Logout</a>
+        </li>
       </ul>
 
       <div class="text-end">
         <h4>
-          <span class="badge site-green fs-4">Voter</span>
+          <span class="badge site-green fs-4"><%= voter.regno %></span>
         </h4>
       </div>
     </div>
