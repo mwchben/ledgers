@@ -1,8 +1,7 @@
 import '../App.css';
-import '../css/home.css'
+import '../css/main.css'
 import axios from 'axios';
 import { useState } from 'react';
-import NavBar from '../components/NavBar';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -89,66 +88,69 @@ export default function LogCandidate() {
 
     return (
         <>
-            <NavBar />
-            <h3>Candidate</h3>
-            <div className="login-wrap">
-                <div className="login-html">
-                    <input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked /><label htmlFor="tab-1" className="tab">Log In</label>
-                    <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">Register</label>
-                    <div className="login-form">
-                        <div className="sign-in-htm">
-                            <form onSubmit={(e) => handleLogSubmit(e)}>
-                                <div className="group">
-                                    <label htmlFor="email" className="label">TUK Email Address</label>
-                                    <input id="email" type="email" name="email" value={dataLog.email} onChange={(e) => setDataLog({ ...dataLog, email: e.target.value })} placeholder="voter@students.tukenya.ac.ke" className="input" />
+            <div className='bg-slate-50'>
+                <h3 className='text-center text-black font-semibold font-sans text-5xl py-4'>Candidate</h3>
+                <div className="login-wrap">
+                    <div className="login-html bg-slate-100">
+                        <input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked /><label htmlFor="tab-1" className="tab">Log In</label>
+                        <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">Register</label>
+                        <div className="login-form">
+                            <div className="sign-in-htm">
+                                <form onSubmit={(e) => handleLogSubmit(e)}>
+                                    <div className="group">
+                                        <label htmlFor="email" className="label">TUK Email Address</label>
+                                        <input id="email" type="email" name="email" value={dataLog.email} onChange={(e) => setDataLog({ ...dataLog, email: e.target.value })} placeholder="voter@students.tukenya.ac.ke" className="input" />
+                                    </div>
+                                    <div className="group">
+                                        <label htmlFor="password" className="label">Password</label>
+                                        <input id="password" type="password" name="password" value={dataLog.password} onChange={(e) => setDataLog({ ...dataLog, password: e.target.value })} className="input" data-type="password" />
+                                    </div>
+                                    <div className="group">
+                                        <input type="submit" className="button text-white" value="Login" />
+                                    </div>
+                                </form>
+                                <div className="hr"></div>
+                                <div className="foot-lnk">
+                                    <div className="group">
+                                        <Link className="button text-white" to="/">Back</Link>
+                                    </div>
+
                                 </div>
-                                <div className="group">
-                                    <label htmlFor="password" className="label">Password</label>
-                                    <input id="password" type="password" name="password" value={dataLog.password} onChange={(e) => setDataLog({ ...dataLog, password: e.target.value })} className="input" data-type="password" />
-                                </div>
-                                <div className="group">
-                                    <input type="submit" className="button" value="Login" />
-                                </div>
-                            </form>
-                            <div className="hr"></div>
-                            <div className="foot-lnk">
-                                <Link to="/" style={{ color: "#fa255e" }}>Back</Link>
+                            </div>
+                            <div className="sign-up-htm">
+                                <form onSubmit={(e) => handleRegSubmit(e)}>
+                                    <div className="group">
+                                        <label htmlFor="name" className="label">Name</label>
+                                        <input id="name" type="text" name="name" value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} placeholder="Firstname   lastname" className="input" />
+                                        {/* {isError.name ? <div className='nameError'>{isError.name}</div> : null} */}
+                                    </div>
+                                    <div className="group">
+                                        <label htmlFor="email" className="label">TUK Email Address</label>
+                                        <input id="email" type="email" name="email" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} placeholder="voter@students.tukenya.ac.ke" className="input" />
+                                        <div className='emailError'></div>
+                                    </div>
+                                    <div className="group">
+                                        <label htmlFor="regno" className="label">Registration Number</label>
+                                        <input id="regno" type="text" name="regno" value={data.regno} onChange={(e) => setData({ ...data, regno: e.target.value })} placeholder="SCII/00000/2010" className="input" />
+                                        <div className='regnoError'></div>
+                                    </div>
+                                    <div className="group">
+                                        <label htmlFor="password" className="label">Password</label>
+                                        <input id="password" type="password" name="password" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} className="input" data-type="password" />
+                                        <div className='passwordError'></div>
+                                    </div>
+
+
+                                    <div className="group">
+                                        <input type="submit" className="button text-white" value="Register" />
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <div className="sign-up-htm">
-                            <form onSubmit={(e) => handleRegSubmit(e)}>
-                                <div className="group">
-                                    <label htmlFor="name" className="label">Name</label>
-                                    <input id="name" type="text" name="name" value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} placeholder="Firstname   lastname" className="input" />
-                                    {/* {isError.name ? <div className='nameError'>{isError.name}</div> : null} */}
-                                </div>
-                                <div className="group">
-                                    <label htmlFor="email" className="label">TUK Email Address</label>
-                                    <input id="email" type="email" name="email" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} placeholder="voter@students.tukenya.ac.ke" className="input" />
-                                    <div className='emailError'></div>
-                                </div>
-                                <div className="group">
-                                    <label htmlFor="regno" className="label">Registration Number</label>
-                                    <input id="regno" type="text" name="regno" value={data.regno} onChange={(e) => setData({ ...data, regno: e.target.value })} placeholder="SCII/00000/2010" className="input" />
-                                    <div className='regnoError'></div>
-                                </div>
-                                <div className="group">
-                                    <label htmlFor="password" className="label">Password</label>
-                                    <input id="password" type="password" name="password" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} className="input" data-type="password" />
-                                    <div className='passwordError'></div>
-                                </div>
 
-                                <br />
-                                <div className="group">
-                                    <input type="submit" className="button" value="Register" />
-                                </div>
-                            </form>
-                        </div>
                     </div>
-
                 </div>
             </div>
-
             <ToastContainer />
         </>
     );
