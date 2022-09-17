@@ -4,7 +4,13 @@ const candidateModel = require("../models/candidateModel")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
-//handle ERRORS!! 
+
+/*
+
+handle ERRORS!! 
+
+*/
+
 function handleError(error) {
     console.log(error.message, error.code);
     var errorValues = {
@@ -12,6 +18,14 @@ function handleError(error) {
         email: '',
         regno: '',
         password: ''
+    }
+
+    if (error.message === 'Incorrect Email') {
+        errorValues.email = 'This tuk email is not registered'
+    }
+
+    if (error.message === 'Incorrect Password') {
+        errorValues.password = 'Wrong Password'
     }
 
     if (error.code === 11000) {
@@ -27,43 +41,66 @@ function handleError(error) {
 
     return errorValues;
 }
-//create JWT token!!
+
+/*
+
+create JWT token
+
+*/
+
 const expiry = 1 * 24 * 60 * 60;
-function createToken(email) {
+function createToken(id) {
     //payload and headers hashed with this "process.env.JWTOKEN" to create the signature
-    return jwt.sign({ email }, process.env.JWTOKEN, { expiresIn: expiry })
+    return jwt.sign({ id }, process.env.JWTOKEN, { expiresIn: expiry })
 }
 
 
-//VOTER!!!
+/*
+
+VOTER
+
+*/
+
 //middleware to register wth req, res..................................................................
 const registerVoter = (req, res, next) => {
 
-    bcrypt.hash(req.body.password, 5, function (err, hashedPassword) {
-        if (err) {
-            res.json({ error: err })
-        }
-        let voter = new voterModel({
-            name: req.body.name,
-            email: req.body.email,
-            regno: req.body.regno,
-            password: hashedPassword
-        })
-        voter.save()
-            .then(voter => {
-                res.json({ success_msg: "You are registered! Login now..." })
-            })
-            .catch(error => {
-                const errors = handleError(error)
-                res.json({ message: errors })
-            })
+    let voter = new voterModel({
+        name: req.body.name,
+        email: req.body.email,
+        regno: req.body.regno,
+        password: req.body.password
     })
+    voter.save()
+        .then(voter => {
+            res.json({ success_msg: "You are registered! Login now to your profile" })
+        })
+        .catch(error => {
+            const errors = handleError(error)
+            res.json({ errors: errors })
+        })
 }
 //middleware to login with req, res....................................................................
-const loginVoter = (req, res, next) => {
+const loginVoter = async (req, res, next) => {
     let email = req.body.email
     let password = req.body.password
 
+    try {
+        const voter = await voterModel.login(email, password)
+        let token = createToken(voter._id);
+        res.cookie('voterLoginJWT', token, { httpOnly: true, maxAge: expiry * 1000 });
+        res.json({
+            message: "Voter successfull login!",
+            token: token,
+            voter: voter._id
+        })
+    } catch (error) {
+        const errors = handleError(error)
+        res.json({ errors: errors })
+    }
+
+    /* 
+    
+    ***another way***
     voterModel.findOne({ email: email })
         .then(voter => {
             if (voter) {
@@ -83,14 +120,17 @@ const loginVoter = (req, res, next) => {
                         })
                     }
                     else {
-                        res.json({ message: "Password mismatch!" })
+                        res.json({ errors: "Password mismatch!" })
                     }
-                })
+                })  
             } else {
-                res.json({ message: "Voter does not exist" })
+                res.json({ errors: "Voter does not exist" })
             }
-        })
+        }) 
+        
+        */
 }
+
 //middleware to getID..................................................................................
 async function getVoter(req, res, next) {
     let voter
@@ -108,7 +148,12 @@ async function getVoter(req, res, next) {
 
 
 
-//CANDIDATE!!!!
+/*
+
+CANDIDATE
+
+*/
+
 //middleware to register with req, res..................................................................
 const registerCandidate = (req, res, next) => {
 

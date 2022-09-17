@@ -1,0 +1,73 @@
+.site-green {
+  background-color: #21846a;
+}
+.site-bluish {
+  background-color: rgb(226 232 240);
+}
+.site-red {
+  background-color: #84213b;
+}
+.text-green {
+  color: #21846a;
+}
+.text-red {
+  color: #84213b;
+}
+
+body {
+  background-color: rgb(248 250 252);
+  font-size: large;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  color: #84213b;
+}
+
+/*
+reg/login
+*/
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--bs-nav-pills-link-active-color);
+  background-color: #84213b;
+}
+.nav-link {
+  color: #84213b;
+}
+.btn {
+  --bs-btn-border-color: #84213b;
+  --bs-btn-hover-border-color: #21846a;
+  background-color: #84213b;
+  --bs-btn-hover-bg: #21846a;
+  --bs-btn-active-bg: #21846a;
+  --bs-btn-active-border-color: #21846a;
+}
+/*
+errors in login/reg
+*/
+.name-error,
+.emailReg-error,
+.emailLog-error,
+.regno-error,
+.passwordReg-error,
+.passwordLog-error {
+  color: #ff0055;
+  margin: 10px 2px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.reg-success {
+  color: #21846a;
+  margin: 10px 2px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/*
+lottie
+*/
+.lottie {
+  height: 90%;
+  width: 90%;
+}

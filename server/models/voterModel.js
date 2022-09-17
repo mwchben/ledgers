@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const bcrypt = require("bcryptjs")
 
 const voterSchema = new mongoose.Schema({
     name: {
@@ -26,6 +27,25 @@ const voterSchema = new mongoose.Schema({
         minlength: [7, 'Minimum password length is 7 characters']
     }
 });
+
+voterSchema.pre('save', async function (next) {
+    const salt = await bcrypt.genSalt()
+    this.password = await bcrypt.hash(this.password, salt)
+    next()
+})
+
+//static method to login user
+voterSchema.statics.login = async function (email, password) {
+    const voter = await this.findOne({ email: email })
+    if (voter) {
+        const ruhusu = await bcrypt.compare(password, voter.password)
+        if (ruhusu) {
+            return voter
+        }
+        throw Error('Incorrect Password')
+    }
+    throw Error('Incorrect Email')
+}
 
 const voterModel = mongoose.model("voter", voterSchema) //args(name of model in db, schema)
 module.exports = voterModel

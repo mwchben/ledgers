@@ -30,3 +30,6 @@ work on:
     2.remove the quotes on the toasts/////
     3.protected routes in react for those authenticated () youtube on liked videos
     4.Work on password validation
+
+//hot working::
+    use ejs for the login sessions for voting 
