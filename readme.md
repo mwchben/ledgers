@@ -15,5 +15,5 @@
 
 #### Packages
 
-- Frontend pckgs: react-router-dom & reactstrap
-- Frontend pckgs: dotenv, express, mongoose, mongodb & nodemon
+- Frontend pckgs: ~react-router-dom & reactstrap~ * EJS  in Backened *
+- Backend pckgs: dotenv, express, mongoose, mongodb & nodemon
