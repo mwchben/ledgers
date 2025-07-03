@@ -9,7 +9,11 @@
 - Pip comed pre-installed with the current Py versions (>3.4)
 
 ### Linux (Fedora)
-_(coming soon)_
+- if python isn't installed: (do as below)
+- run `sudo dnf install python3`
+- run `dnf install python3-pip`
+- verify with py --version & pip --version
+- You can upgrade pip with `pip install --upgrade pip`
 
 ## flask
 
@@ -20,4 +24,9 @@ Py budles the [venv](https://docs.python.org/3/library/venv.html#module-venv) fo
 - Activate with `venv\Scripts\activate`
 
 ### Linux (Fedora)
-_(coming soon)_
+_(coming soon)_ python3 -m venv .venv
+- Run on your project path `python3 -m venv .venv`
+- Activate with ` . .venv/bin/activate` or `source project_venv/bin/activate`
+- Your shell prompt will change to show the name of the activated environment as below:
+  ![alt text](image.png)
+- install flask now with `pip install Flask` or `python -m pip install flask`
