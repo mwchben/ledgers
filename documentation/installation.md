@@ -19,14 +19,18 @@
 
 ### Win (x64)
 NB: advisable to use a virtual environment to manage the dependencies for a project, both in development and in production.
+NB: run on powershell(admin) but  Set-ExecutionPolicy as RemoteSigned then proceed
 Py budles the [venv](https://docs.python.org/3/library/venv.html#module-venv) for VEs.
 - Run on your project path `py -3 -m venv .venv`
 - Activate with `venv\Scripts\activate`
+
 
 ### Linux (Fedora)
 _(coming soon)_ python3 -m venv .venv
 - Run on your project path `python3 -m venv .venv`
 - Activate with ` . .venv/bin/activate` or `source project_venv/bin/activate`
 - Your shell prompt will change to show the name of the activated environment as below:
-  ![alt text](image.png)
+
+
+![alt text](/ledgers/documentation/win1.png)
 - install flask now with `pip install Flask` or `python -m pip install flask`
