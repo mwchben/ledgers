@@ -3,9 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }}</title>
-  <style>
-
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 </head>
 <body>
   <div class="background-pattern" id="pattern"></div>
@@ -16,8 +14,8 @@
         <div class="circle circle-1"></div>
         <div class="circle circle-2"></div>
       </div>
-      <h1>minimal.</h1>
-      <p>Welcome back. Begin your mindful journey to a more balanced lifestyle.</p>
+      <h1>Global Admin</h1>
+      <p>Welcome back. Please note a global admin can add other admins & users </p>
     </div>
 
     <form id="login-form">
@@ -59,8 +57,7 @@
     </div>
   </div>
 
-  <script>
-    
-  </script>
+  <script src="{{ url_for('static', filename='login.js') }}"></script>
+
 </body>
 </html>
