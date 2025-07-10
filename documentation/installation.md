@@ -34,3 +34,10 @@ _(coming soon)_ python3 -m venv .venv
 
 ![alt text](/ledgers/documentation/win1.png)
 - install flask now with `pip install Flask` or `python -m pip install flask`
+
+
+### Run app
+
+Python web client 
+- `flask run` will run with debug mode off.
+- `python app.py` will run with debug mode on
