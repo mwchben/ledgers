@@ -1,12 +1,11 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "index.html" %}
+{% block head %}
   <title>{{ title }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
-</head>
-<body>
-  <div class="background-pattern" id="pattern"></div>
+{% endblock %}
+
+{% block body %}
+<div class="background-pattern" id="pattern"></div>
   
   <div class="container">
     <div class="brand">
@@ -59,5 +58,4 @@
 
   <script src="{{ url_for('static', filename='login.js') }}"></script>
 
-</body>
-</html>
+{% endblock %}
