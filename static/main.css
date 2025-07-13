@@ -144,14 +144,14 @@ html, body {
   cursor: default;
 }
 
-.container .drawer .menu a i {
+.container .drawer .menu a {
   display: block;
   margin: 0 auto;
   width: 50px;
   border-radius: 2px;
 }
 
-.container .drawer .menu a.active i {
+.container .drawer .menu a.active {
   background: var(--accent-primary);
   animation: 0.3s ease-out 0s 1 fadeIn;
 }
