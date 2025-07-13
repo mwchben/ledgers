@@ -1,13 +1,10 @@
-{% extends "index.html" %}
-{% block head %}
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-{% endblock %}
-
-{% block body %}
+{% extends "index.html" %} {% block head %}
+<title>{{ title }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+{% endblock %} {% block body %}
 <div class="container">
   <div class="drawer">
-    <a class="navicon" href="#"><i class="icon ion-navicon"></i></a>
+    <a class="navicon" href="#"><i class="icon ion-navicon"></i>bkk</a>
     <div class="menu">
       <a data-menu="dashboard" href="#" class="active">Home</a>
       <a data-menu="users" href="#">People</a>
@@ -30,25 +27,21 @@
             <span class="icon">
               <i class="icon ion-pound"></i>
             </span>
-            <span class="stat">
-              Server Status
-            </span>
-            <div class="status">
-            </div>
+            <span class="stat"> Server Status </span>
+            <div class="status"></div>
           </div>
           <div class="body">
             <h2>Server is currently $_status</h2>
             <p>
-              The server is running normally and no issues have recently been detected. If you notice an outage, please report it to the administrator.
+              The server is running normally and no issues have recently been
+              detected. If you notice an outage, please report it to the
+              administrator.
             </p>
           </div>
           <div class="footer">
             <div class="user">
-              <div class="user-icon">
-              </div>
-              <span class="username">
-                Administrator
-              </span>
+              <div class="user-icon"></div>
+              <span class="username"> Administrator </span>
             </div>
           </div>
         </div>
@@ -57,33 +50,27 @@
             <span class="icon">
               <i class="icon ion-code-working"></i>
             </span>
-            <span class="stat">
-              CSGO Status
-            </span>
-            <div class="status">
-            </div>
+            <span class="stat"> CSGO Status </span>
+            <div class="status"></div>
           </div>
           <div class="body">
             <h2>Cheat is currently $_status</h2>
             <p>
-              The server is running normally and no issues have recently been detected. If you notice an outage, please report it to the administrator.
+              The server is running normally and no issues have recently been
+              detected. If you notice an outage, please report it to the
+              administrator.
             </p>
           </div>
           <div class="footer">
             <div class="user">
-              <div class="user-icon">
-              </div>
-              <span class="username">
-                uplusion23
-              </span>
+              <div class="user-icon"></div>
+              <span class="username"> uplusion23 </span>
             </div>
           </div>
         </div>
         <div class="card-verticle">
           <div class="card-small">
-            <span class="title">
-              Active Users
-            </span>
+            <span class="title"> Active Users </span>
             <h2 class="text">12</h2>
             <div class="graph">
               <div class="bar" data-day="sunday">
@@ -110,14 +97,11 @@
             </div>
           </div>
           <div class="card-small">
-            <span class="title">
-              Overview
-            </span>
+            <span class="title"> Overview </span>
           </div>
         </div>
       </div>
-      <div class="stats">
-      </div>
+      <div class="stats"></div>
     </div>
     <div class="page noflex" data-page="users">
       <div class="header">
@@ -137,24 +121,12 @@
         </div>
         <div class="users-table">
           <div class="users-item header">
-            <div class="table-item noflex">
-              ID
-            </div>
-            <div class="table-item">
-              Email Address
-            </div>
-            <div class="table-item">
-              Username
-            </div>
-            <div class="table-item">
-              Nickname
-            </div>
-            <div class="table-item">
-              Active
-            </div>
-            <div class="table-item">
-              Premium
-            </div>
+            <div class="table-item noflex">ID</div>
+            <div class="table-item">Email Address</div>
+            <div class="table-item">Username</div>
+            <div class="table-item">Nickname</div>
+            <div class="table-item">Active</div>
+            <div class="table-item">Premium</div>
           </div>
         </div>
       </div>
@@ -171,27 +143,21 @@
             <span class="icon">
               <i class="icon ion-code-working"></i>
             </span>
-            <span class="stat">
-              Cheat Client
-            </span>
-            <div class="status">
-            </div>
+            <span class="stat"> Cheat Client </span>
+            <div class="status"></div>
           </div>
           <div class="body">
             <h2>Latest Version: v$_VERSION</h2>
-            <p>
-              changelog here
-            </p>
+            <p>changelog here</p>
           </div>
           <div class="footer">
             <div class="user">
-              <div class="user-icon">
-              </div>
-              <span class="username">
-                Administrator 
-              </span>
+              <div class="user-icon"></div>
+              <span class="username"> Administrator </span>
             </div>
-            <a class="download" href="#">Download <i class="icon ion-archive"></i></a>
+            <a class="download" href="#"
+              >Download <i class="icon ion-archive"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -214,10 +180,9 @@
       </div>
     </div>
   </div>
-  <div class="sidebar">
-
-  </div>
-  <div class="dialog">
+  <div class="sidebar"></div>
+   
+  <div class="dialog">
     <div class="dialog-block">
       <h2>Are you sure you want to logout?</h2>
       <div class="controls">
@@ -227,7 +192,7 @@
     </div>
   </div>
 </div>
-{% block script %}
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
-{% endblock %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
 {% endblock %}
