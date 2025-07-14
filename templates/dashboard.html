@@ -8,15 +8,18 @@
 <div class="container">
   <div class="drawer">
     <a class="navicon" href="#"><i class="icon ion-navicon"></i></a>
+
     <div class="menu">
       <a data-menu="dashboard" href="#" class="active">Home</a>
       <a data-menu="users" href="#">People</a>
-      <a data-dialog="logout" href="#">Logout</a>
       <a data-menu="download" href="#">Download</a>
       <a data-menu="about" href="#">About</a>
+      <a data-dialog="logout" href="#">Logout</a>
     </div>
-    <span class="credits">uplusion23</span>
+
+    <span class="credits">Admin panel</span>
   </div>
+
   <div class="content">
     <div class="page active" data-page="dashboard">
       <div class="header">
@@ -119,6 +122,7 @@
       <div class="stats">
       </div>
     </div>
+
     <div class="page noflex" data-page="users">
       <div class="header">
         <div class="title">
@@ -126,39 +130,19 @@
         </div>
       </div>
       <div class="grid">
-        <div class="user-edit">
-          <div class="header">
-            <span class="icon">
-              <i class="icon ion-person"></i>
-            </span>
-            <span class="user-edit-name">$_USERNAME</span>
-            <a href="#" class="close"><i class="icon ion-close-round"></i></a>
-          </div>
+        <div class="info-container">
+        <div class="info">
+          <a href="http://uplusion23.net/" target="_blank">Developer</a>
+          <span>uplusion23</span>
         </div>
-        <div class="users-table">
-          <div class="users-item header">
-            <div class="table-item noflex">
-              ID
-            </div>
-            <div class="table-item">
-              Email Address
-            </div>
-            <div class="table-item">
-              Username
-            </div>
-            <div class="table-item">
-              Nickname
-            </div>
-            <div class="table-item">
-              Active
-            </div>
-            <div class="table-item">
-              Premium
-            </div>
-          </div>
+        <div class="info">
+          <a href="#" target="_blank">Dashboard Version</a>
+          <span>1.0.0</span>
         </div>
       </div>
+      </div>
     </div>
+    
     <div class="page noflex" data-page="download">
       <div class="header">
         <div class="title">
@@ -196,6 +180,8 @@
         </div>
       </div>
     </div>
+
+
     <div class="page noflex" data-page="about">
       <div class="header">
         <div class="title">
@@ -213,6 +199,8 @@
         </div>
       </div>
     </div>
+
+
   </div>
   <div class="sidebar">
 
@@ -227,5 +215,6 @@
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="{{ url_for('static', filename='main.js') }}"></script>
 {% endblock %}
