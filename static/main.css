@@ -16,11 +16,13 @@ Todo list;
   --background-secondary: #ebe6e6;
   --background-secondary-faded: #d9d5d5;
   --background-card: #c3c1c1;
-  --accent-primary: rgba(54,80,209,1);
-  --accent-primary-faded: rgba(54,80,209,0.5);
-  --accent-primary-transparent: rgba(54,80,209,0);
-  --status-red: #e76f51;
-  --status-green: #2a9d8f;
+  --accent-primary: #49857e;
+  --accent-primary-faded: #49857e;
+  --accent-primary-transparent: #1681755f;
+  --error-color: #e76f51;
+  --success-color: #2a9d8f;
+  --accent-color: #94c2bd;
+  --dark-accent: #3a7c74;
 }
 
 * {
@@ -120,7 +122,7 @@ html, body {
 }
 
 .container .drawer .menu a.active {
-  background: var(--accent-primary);
+  background: var(--dark-accent);
   animation: 0.3s ease-out 0s 1 fadeIn;
 }
 
@@ -295,14 +297,14 @@ html, body {
   width: 15px;
   height: 15px;
   border-radius: 15px;
-  background: var(--status-red);
+  background: var(--error-color);
   top: 50%;
   left: 100%;
   transform: translateY(-50%);
 }
 
 .container .content .page .grid .card .head .status.up:after {
-  background: var(--status-green);
+  background: var(--success-color);
 }
 
 .container .content .page .grid .card .body {
@@ -458,7 +460,7 @@ html, body {
   left: 0;
   height: 0px;
   width: 15px;
-  background: var(--status-green);
+  background: var(--success-color);
   padding: 0;
 }
 
@@ -474,7 +476,7 @@ html, body {
   text-decoration: none;
   float: right;
   color: var(--text-primary);
-  background: var(--status-green);
+  background: var(--success-color);
   opacity: 0.8;
   transition: all 0.2s ease;
 }
