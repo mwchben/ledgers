@@ -118,12 +118,12 @@ html, body {
   display: block;
   margin: 0 auto;
   width: 50px;
+  text-decoration: none;
   border-radius: 2px;
 }
 
 .container .drawer .menu a.active {
-  background: var(--dark-accent);
-  animation: 0.3s ease-out 0s 1 fadeIn;
+  color: var(--dark-accent);
 }
 
 .container .drawer .menu a:hover {
@@ -212,7 +212,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-weight: 200;
+  font-weight: 700;
 }
 
 .container .content .page .grid {

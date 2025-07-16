@@ -38,38 +38,6 @@ body {
   animation: fadeIn 1s ease;
 }
 
-.logo {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 1rem;
-}
-
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  transition: var(--transition);
-}
-
-.circle-1 {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(
-    135deg,
-    var(--accent-color) 0%,
-    var(--dark-accent) 100%
-  );
-  animation: pulse 6s infinite alternate;
-}
-
-.circle-2 {
-  width: 40px;
-  height: 40px;
-  background: white;
-  top: 10px;
-  left: 10px;
-}
-
 h1 {
   font-size: 1.8rem;
   font-weight: 600;
