@@ -2,7 +2,7 @@ from flask import Flask,render_template,request, redirect, url_for, flash
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
-from models.admin_model import Admin
+
 
 app = Flask(__name__)
 
@@ -12,10 +12,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'login' # Redirect unauthenticated users to this route
+login_manager.login_view = 'login'
 
 
 db = SQLAlchemy(app)
+from models.admin_model import Admin #prevent circular import
 
 @app.route("/dashboard")
 def index():
