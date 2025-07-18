@@ -22,14 +22,16 @@ from models.admin_model import Admin #prevent circular import
 def load_user(user_id):
     return Admin.query.get(int(user_id))
 
+
 @app.route("/dashboard")
+@login_required
 def index():
     return render_template('dashboard.html', title='Dashboard')
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('/dashboard'))
 
     if request.method == 'POST':
         username = request.form['username']
@@ -39,7 +41,7 @@ def login():
         if admin and admin.password == password:
                 login_user(admin)
                 flash('Logged in successfully!', 'success')
-                return redirect(url_for('dashboard'))
+                return redirect(url_for('/dashboard'))
         else:
             flash('Invalid username or password', 'danger')
     return render_template('login.html', title='login')
