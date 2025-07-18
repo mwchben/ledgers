@@ -17,6 +17,11 @@ login_manager.login_view = 'login'
 db = SQLAlchemy(app)
 from models.admin_model import Admin #prevent circular import
 
+#f() tells Flask-Login how to load admin user from the database by ID.
+@login_manager.user_loader
+def load_user(user_id):
+    return Admin.query.get(int(user_id))
+
 @app.route("/dashboard")
 def index():
     return render_template('dashboard.html', title='Dashboard')
