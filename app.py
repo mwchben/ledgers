@@ -31,17 +31,17 @@ def index():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-            return redirect(url_for('/dashboard'))
+            return redirect(url_for('dashboard'))
 
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
-        admin = Admin.query.filter_by(username=username).first
+        admin = Admin.query.filter_by(username=username).first()
         if admin and admin.password == password:
                 login_user(admin)
                 flash('Logged in successfully!', 'success')
-                return redirect(url_for('/dashboard'))
+                return redirect(url_for('dashboard'))
         else:
             flash('Invalid username or password', 'danger')
     return render_template('login.html', title='login')
