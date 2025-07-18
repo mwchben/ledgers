@@ -77,21 +77,21 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   let isValid = true;
 
-  // Validate email
-  if (!validateEmail(email.value)) {
-    showError(email, emailError);
-    isValid = false;
-  } else {
-    hideError(email, emailError);
-  }
+  // // Validate email
+  // if (!validateEmail(email.value)) {
+  //   showError(email, emailError);
+  //   isValid = false;
+  // } else {
+  //   hideError(email, emailError);
+  // }
 
-  // Validate password
-  if (password.value.length < 6) {
-    showError(password, passwordError);
-    isValid = false;
-  } else {
-    hideError(password, passwordError);
-  }
+  // // Validate password
+  // if (password.value.length < 6) {
+  //   showError(password, passwordError);
+  //   isValid = false;
+  // } else {
+  //   hideError(password, passwordError);
+  // }
 
   // If form is valid, show success animation
   if (isValid) {
