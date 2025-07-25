@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request, redirect, url_for, flash
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from flask_login import LoginManager, login_user, logout_user, login_required,current_user
 from extensions.extension import db
 
 
@@ -17,9 +17,11 @@ db.init_app(app)
 from models.admin_model import Admin #prevent circular import
 
 #f() tells Flask-Login how to load admin user from the database by ID.
-@login_manager.user_loader
+@login_manager.user_loader  
 def load_user(user_id):
+    print("fakm")
     return Admin.query.get(int(user_id))
+
 
 
 @app.route("/")
@@ -28,22 +30,20 @@ def index():
 
 @app.route("/dashboard")
 @login_required
-def dashboard():
+def dashboard() :
     return render_template('dashboard.html', title='Dashboard')
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-            return redirect(url_for('dashboard'))
-
-    if request.method == 'POST':
+        return redirect(url_for('dashboard'))
+    if request.method == 'POST': 
         username = request.form['username']
         password = request.form['password']
 
         admin = Admin.query.filter_by(username=username).first()
         if admin and admin.password == password:
                 login_user(admin)
-                print("Logged in:", admin.username)
                 flash('Logged in successfully!', 'success')
                 return redirect(url_for('dashboard'))
         else:
