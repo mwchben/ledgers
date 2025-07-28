@@ -22,7 +22,6 @@ for (let i = 0; i < patternCount; i++) {
 const form = document.getElementById("login-form");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const emailError = document.getElementById("email-error");
 const passwordError = document.getElementById("password-error");
 const togglePassword = document.getElementById("toggle-password");
 const successAnimation = document.getElementById("success-animation");
@@ -75,6 +74,14 @@ togglePassword.addEventListener("click", () => {
 // Form validation
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  // let isValid = true;
+  // // Validate email
+  // if (!validateEmail(email.value)) {
+  //   showError(email, emailError);
+  //   isValid = false;
+  // } else {
+  //   hideError(email, emailError);
+  // }
   let isValid = true;
 
   // // Validate email
@@ -85,45 +92,45 @@ form.addEventListener("submit", (e) => {
   //   hideError(email, emailError);
   // }
 
-  // // Validate password
-  // if (password.value.length < 6) {
-  //   showError(password, passwordError);
-  //   isValid = false;
-  // } else {
-  //   hideError(password, passwordError);
-  // }
+  // Validate password
+  if (password.value.length < 6) {
+    showError(password, passwordError);
+    isValid = false;
+  } else {
+    hideError(password, passwordError);
+  }
 
   // If form is valid, show success animation
-  if (isValid) {
-    // Add ripple effect to button on submit
-    const btn = document.getElementById("login-btn");
-    const ripple = document.createElement("span");
-    ripple.classList.add("ripple");
-    btn.appendChild(ripple);
+  // if (isValid) {
+  //   // Add ripple effect to button on submit
+  //   const btn = document.getElementById("login-btn");
+  //   const ripple = document.createElement("span");
+  //   ripple.classList.add("ripple");
+  //   btn.appendChild(ripple);
 
-    const btnRect = btn.getBoundingClientRect();
-    const diameter = Math.max(btnRect.width, btnRect.height);
+  //   const btnRect = btn.getBoundingClientRect();
+  //   const diameter = Math.max(btnRect.width, btnRect.height);
 
-    ripple.style.width = ripple.style.height = `${diameter}px`;
-    ripple.style.left = `${e.clientX - btnRect.left - diameter / 2}px`;
-    ripple.style.top = `${e.clientY - btnRect.top - diameter / 2}px`;
+  //   ripple.style.width = ripple.style.height = `${diameter}px`;
+  //   ripple.style.left = `${e.clientX - btnRect.left - diameter / 2}px`;
+  //   ripple.style.top = `${e.clientY - btnRect.top - diameter / 2}px`;
 
-    setTimeout(() => {
-      // Show success animation
-      successAnimation.classList.add("active");
+  //   setTimeout(() => {
+  //     // Show success animation
+  //     successAnimation.classList.add("active");
 
-      // Redirect or show dashboard after animation
-      setTimeout(() => {
-        // Here you would redirect to dashboard or next page
-        // window.location.href = "/dashboard";
-        successAnimation.classList.remove("active");
-        form.reset();
-        inputFields.forEach((input) => {
-          input.classList.remove("has-value");
-        });
-      }, 1500);
-    }, 300);
-  }
+  //     // Redirect or show dashboard after animation
+  //     setTimeout(() => {
+  //       // Here you would redirect to dashboard or next page
+  //       // window.location.href = "/dashboard";
+  //       successAnimation.classList.remove("active");
+  //       form.reset();
+  //       inputFields.forEach((input) => {
+  //         input.classList.remove("has-value");
+  //       });
+  //     }, 1500);
+  //   }, 300);
+  // }
 });
 
 // Helper functions
