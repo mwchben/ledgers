@@ -13,17 +13,10 @@
       <p>Welcome back. Please note a global admin can add other admins & users </p>
     </div>
 
-<<<<<<< HEAD
-    <form id="login-form" method="post">
+    <form id="login-form" method="post" action="{{ url_for('login') }}">
       <div class="form-group">
         <input type="username" class="form-control" id="username" required>
         <label for="username" class="form-label">Username</label>
-=======
-    <form method="POST" id="login-form" action="{{ url_for('login') }}">
-      <div class="form-group">
-        <input type="text" name="username" class="form-control" id="username" required>
-        <label for="username" class="form-label">username</label>
->>>>>>> dea6bf6e5fe88b480c257365e9fa42e7a162fccb
         <!-- <div class="error-message" id="email-error">Please enter a valid email address</div> -->
       </div>
 

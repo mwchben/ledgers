@@ -41,3 +41,18 @@ _(coming soon)_ python3 -m venv .venv
 Python web client 
 - `flask run` will run with debug mode off.
 - `python app.py` will run with debug mode on
+
+### Init Configurations
+- The db (maggiore) is created when the **app.py** file with the line under the */instance* folder
+
+```
+if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True)
+```
+- You can [download](https://www.sqlite.org/download.html) sqlite3.exe and place under */instance* 
+- Run the **create_admin.py** file with `python create_admin.py` (will output: User created with id: 1)
+- You can also confirm this by:
+
+![alt text](sql1.png)
