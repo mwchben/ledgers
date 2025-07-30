@@ -38,8 +38,8 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('dashboard'))
     if request.method == 'POST': 
-        username = request.form.get['username']
-        password = request.form.get['password']
+        username = request.form['username']
+        password = request.form['password']
 
         admin = Admin.query.filter_by(username=username).first()
         if admin and admin.password == password:
