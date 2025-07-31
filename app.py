@@ -45,7 +45,7 @@ def login():
         if admin and admin.password == password:
                 login_user(admin)
                 flash('Logged in successfully!', 'success')
-                return redirect(url_for('/dashboard'))
+                return redirect(url_for('dashboard'))
         else:
             flash('Invalid username or password', 'danger')
     return render_template('login.html', title='login')

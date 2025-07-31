@@ -71,9 +71,14 @@ togglePassword.addEventListener("click", () => {
   }
 });
 
-// Form validation
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+// // Form validation
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const btn = document.getElementById("login-btn");
+//   form.reset();
+//     inputFields.forEach((input) => {
+//     input.classList.remove("has-value");
+//   });
   // let isValid = true;
   // // Validate email
   // if (!validateEmail(email.value)) {
@@ -82,7 +87,7 @@ form.addEventListener("submit", (e) => {
   // } else {
   //   hideError(email, emailError);
   // }
-  let isValid = true;
+  // let isValid = true;
 
   // // Validate email
   // if (!validateEmail(email.value)) {
@@ -93,12 +98,12 @@ form.addEventListener("submit", (e) => {
   // }
 
   // Validate password
-  if (password.value.length < 6) {
-    showError(password, passwordError);
-    isValid = false;
-  } else {
-    hideError(password, passwordError);
-  }
+  // if (password.value.length < 6) {
+  //   showError(password, passwordError);
+  //   isValid = false;
+  // } else {
+  //   hideError(password, passwordError);
+  // }
 
   // If form is valid, show success animation
   // if (isValid) {
@@ -131,21 +136,21 @@ form.addEventListener("submit", (e) => {
   //     }, 1500);
   //   }, 300);
   // }
-});
+// });
 
 // Helper functions
-function validateEmail(email) {
-  const re =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-}
+// function validateEmail(email) {
+//   const re =
+//     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   return re.test(String(email).toLowerCase());
+// }
 
-function showError(input, errorElement) {
-  input.classList.add("error");
-  errorElement.classList.add("visible");
-}
+// function showError(input, errorElement) {
+//   input.classList.add("error");
+//   errorElement.classList.add("visible");
+// }
 
-function hideError(input, errorElement) {
-  input.classList.remove("error");
-  errorElement.classList.remove("visible");
-}
+// function hideError(input, errorElement) {
+//   input.classList.remove("error");
+//   errorElement.classList.remove("visible");
+// }
