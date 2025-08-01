@@ -24,9 +24,9 @@ def load_user(user_id):
 
 
 
-@app.route("/")
-def index():
-    return render_template('index.html', title='Welcome')
+# @app.route("/")
+# def index():
+#     return render_template('index.html', title='Welcome')
 
 @app.route("/dashboard")
 @login_required
