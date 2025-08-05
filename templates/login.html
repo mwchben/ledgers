@@ -1,52 +1,97 @@
-{% extends "index.html" %}
-{% block head %}
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
-{% endblock %}
-
-{% block body %}
+{% extends "index.html" %} {% block head %}
+<title>{{ title }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}" />
+{% endblock %} {% block body %}
 <div class="background-pattern" id="pattern"></div>
-  
-  <div class="container">
-    <div class="brand">
-      <h1>Ledgers</h1>
-      <p>Welcome back. Please note a global admin can add other admins & users </p>
-    </div>
 
-    <form id="login-form" method="POST" action="{{ url_for('login') }}">
-      <div class="form-group">
-        <input type="text" name="username" class="form-control" id="username" required>
-        <label for="username" class="form-label">Username</label>
-        <!-- <div class="error-message" id="email-error">Please enter a valid email address</div> -->
-      </div>
-
-      <div class="form-group">
-        <input type="password" name="password" class="form-control" id="password" required>
-        <label for="password" class="form-label">Password</label>
-             
-        <button type="button" class="toggle-password" id="toggle-password">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-            <circle cx="12" cy="12" r="3"></circle>
-          </svg>
-        </button>
-        <div class="error-message" id="password-error">Password must be at least 6 characters</div>
-      </div>
-
-      <button type="submit" class="btn btn-primary" id="login-btn" value="Login">Sign in</button>
-    </form>
-
-    <!-- <div class="alternative">
-      First time here?<a href="#">Create account</a>
-    </div> -->
+<div class="container">
+  <div class="brand">
+    <h1>Ledgers</h1>
+    <p>Welcome back. Please note a global admin can add other admins & users</p>
   </div>
 
-  <!-- <div class="success-animation" id="success-animation">
+  <form id="login-form" method="POST" action="{{ url_for('login') }}">
+    <div class="form-group">
+      <input
+        type="text"
+        name="username"
+        class="form-control"
+        id="username"
+        required
+      />
+      <label for="username" class="form-label">Username</label>
+      <!-- <div class="error-message" id="email-error">Please enter a valid email address</div> -->
+    </div>
+
+    <div class="form-group">
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        id="password"
+        required
+      />
+      <label for="password" class="form-label">Password</label>
+
+      <button type="button" class="toggle-password" id="toggle-password">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+      </button>
+      <div class="error-message" id="password-error">
+        Password must be at least 6 characters
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="login-btn" value="Login">
+      Sign in
+    </button>
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="popup-alert popup-{{ category }}">
+        {{ message }}
+        <button class="popup-close" onclick="this.parentElement.style.display='none';">&times;</button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+
+  <!-- <div class="alternative">
+      First time here?<a href="#">Create account</a>
+    </div> -->
+</div>
+
+<!-- <div class="success-animation" id="success-animation">
     <div class="success-checkmark">
       <div class="check-icon"></div>
     </div>
   </div> -->
 
-  <script src="{{ url_for('static', filename='login.js') }}"></script>
+<script src="{{ url_for('static', filename='login.js') }}"></script>
+<script>
+  window.onload = function() {
+    const popups = document.querySelectorAll('.popup-alert');
+    setTimeout(() => {
+      popups.forEach(popup => popup.style.display = 'none');
+    }, 4000);
+  };
+</script>
+
 
 {% endblock %}
