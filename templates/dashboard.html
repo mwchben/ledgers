@@ -2,6 +2,7 @@
 {% block head %}
   <title>{{ title }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -11,9 +12,8 @@
 
     <div class="menu">
       <a data-menu="dashboard" href="#" class="active">Home</a>
-      <a data-menu="users" href="#">People</a>
+      <a data-menu="users" href="#">Add</a>
       <a data-menu="download" href="#">Download</a>
-      <a data-menu="about" href="#">About</a>
       <a data-dialog="logout" href="#">Logout</a>
     </div>
 
@@ -131,15 +131,36 @@
       </div>
       <div class="grid">
         <div class="info-container">
-        <div class="info">
-          <a href="http://uplusion23.net/" target="_blank">Developer</a>
-          <span>uplusion23</span>
-        </div>
-        <div class="info">
-          <a href="#" target="_blank">Dashboard Version</a>
-          <span>1.0.0</span>
-        </div>
-      </div>
+                
+       <div class="form-container">
+          <h2>Add New User</h2>
+          <form action="/submit-user" method="POST" enctype="multipart/form-data">
+    
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+              <label for="avatar">Upload Avatar</label>
+              <input type="file" id="avatar" name="avatar" accept="image/*">
+            </div>
+
+            <button type="submit">Add User</button>
+          </form>
+          </div>
+
+          </div>
       </div>
     </div>
     
@@ -177,25 +198,6 @@
             </div>
             <a class="download" href="#">Download <i class="icon ion-archive"></i></a>
           </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="page noflex" data-page="about">
-      <div class="header">
-        <div class="title">
-          <h2>About</h2>
-        </div>
-      </div>
-      <div class="info-container">
-        <div class="info">
-          <a href="http://uplusion23.net/" target="_blank">Developer</a>
-          <span>uplusion23</span>
-        </div>
-        <div class="info">
-          <a href="#" target="_blank">Dashboard Version</a>
-          <span>1.0.0</span>
         </div>
       </div>
     </div>
