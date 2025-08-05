@@ -50,6 +50,14 @@ def login():
             flash('Invalid username or password', 'danger')
     return render_template('login.html', title='login')
 
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out.', 'info')
+    return redirect(url_for('login'))
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('page_not_found.html',title='Ooops!'), 404
