@@ -1,13 +1,22 @@
 from flask import Flask,render_template,request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, logout_user, login_required,current_user
+from werkzeug.utils import secure_filename
 from extensions.extension import db
+
+import os
 
 
 app = Flask(__name__)
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 app.config['SECRET_KEY'] = 'n7b4*(Y53b;a8>?vMOCVE8)'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///maggiore.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['UPLOAD_FOLDER'] = os.path.join(basedir, 'static', 'uploads')
+#create uploads folder if not already there
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -15,6 +24,7 @@ login_manager.login_view = 'login'
 
 db.init_app(app)
 from models.admin_model import Admin #prevent circular import
+from models.user_model import User
 
 #f() tells Flask-Login how to load admin user from the database by ID.
 @login_manager.user_loader  
@@ -57,6 +67,30 @@ def logout():
     flash('You have been logged out.', 'info')
     return redirect(url_for('login'))
 
+@app.route('/add-user', methods=['GET', 'POST'])
+def add_user():
+    if request.method == 'POST':
+        # Get form values
+        name = request.form['name']
+        email = request.form['email']
+        password = request.form['password']
+        
+        # Handle file upload
+        avatar_file = request.files.get('avatar')
+        avatar_filename = None
+        if avatar_file and avatar_file.filename != '':
+            filename = secure_filename(avatar_file.filename)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            avatar_file.save(file_path)
+            avatar_filename = filename
+        
+        # Save to DB
+        new_user = User(name=name, email=email, password=password, avatar=avatar_filename)
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash('User added successfully!', 'success')
+        return redirect(url_for('dashboard'))
 
 @app.errorhandler(404)
 def page_not_found(error):
