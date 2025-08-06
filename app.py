@@ -41,8 +41,9 @@ def load_user(user_id):
 #......................................................................................................
 @app.route("/dashboard")
 @login_required
-def dashboard() :
-    return render_template('dashboard.html', title='Dashboard')
+def dashboard():
+    users = User.query.all()
+    return render_template('dashboard.html', title='Dashboard',users=users)
 
 #......................................................................................................
 @app.route("/login", methods=['GET', 'POST'])
@@ -61,6 +62,7 @@ def login():
         else:
             flash('Invalid username or password', 'danger')
     return render_template('login.html', title='login')
+
 @app.route("/logout")
 @login_required
 def logout():
@@ -92,10 +94,12 @@ def add_user():
 
         flash('User added successfully!', 'success')
         return redirect(url_for('dashboard'))
+    
 @app.route('/users')
 def list_users():
     users = User.query.all()
     return render_template('users.html', users=users)
+
 @app.route('/edit-user/<int:user_id>', methods=['GET', 'POST'])
 def edit_user(user_id):
     user = User.query.get_or_404(user_id)
@@ -106,6 +110,7 @@ def edit_user(user_id):
         flash('User updated successfully', 'success')
         return redirect(url_for('list_users'))
     return render_template('edit_user.html', user=user)
+
 @app.route('/delete-user/<int:user_id>', methods=['POST'])
 def delete_user(user_id):
     user = User.query.get_or_404(user_id)
@@ -117,7 +122,7 @@ def delete_user(user_id):
 #......................................................................................................
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('page_not_found.html',title='Ooops!'), 404
+    return render_template('404.html',title='Ooops!'), 404
 
 if __name__ == "__main__":
     with app.app_context():
