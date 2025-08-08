@@ -108,7 +108,7 @@ def edit_user(user_id):
         user.email = request.form['email']
         db.session.commit()
         flash('User updated successfully', 'success')
-        return redirect(url_for('list_users'))
+        return redirect(url_for('dashboard'))
     return render_template('edit_user.html', user=user)
 
 @app.route('/delete-user/<int:user_id>', methods=['POST'])
@@ -117,7 +117,7 @@ def delete_user(user_id):
     db.session.delete(user)
     db.session.commit()
     flash('User deleted successfully', 'success')
-    return redirect(url_for('list_users'))
+    return redirect(url_for('dashboard'))
 
 #......................................................................................................
 @app.errorhandler(404)
