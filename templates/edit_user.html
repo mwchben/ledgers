@@ -1,0 +1,121 @@
+{% extends "index.html" %}
+{% block head %}
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+{% endblock %}
+
+{% block body %}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 30px;
+    }
+
+    .form-container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .avatar-preview {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .avatar-preview img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ddd;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      padding: 10px 16px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    a.back-link {
+      display: block;
+      margin-top: 15px;
+      text-align: center;
+      color: #555;
+      text-decoration: none;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Edit User</h2>
+
+    <form action="{{ url_for('edit_user', user_id=user.id) }}" method="POST" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{ user.name }}" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="{{ user.email }}" required>
+
+      <label for="password">New Password (leave blank to keep current):</label>
+      <input type="password" id="password" name="password">
+
+      <div class="avatar-preview">
+        <p>Current Avatar:</p>
+        {% set avatar_path = 'uploads/' ~ (user.avatar if user.avatar else 'default.png') %}
+        <img
+            src="{{ url_for('static', filename=avatar_path) }}" alt="Avatar"
+          />
+      </div>
+
+      <label for="avatar">Change Avatar (optional):</label>
+      <input type="file" id="avatar" name="avatar">
+
+      <button type="submit">Update User</button>
+    </form>
+
+    <a href="{{ url_for('dashboard') }}" class="back-link">← Back to User List</a>
+  </div>
+{% endblock %}
