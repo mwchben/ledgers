@@ -29,9 +29,9 @@
       <div class="user-list">
         {% for user in users %}
         <div class="user-card">
+          {% set avatar_path = 'uploads/' ~ (user.avatar if user.avatar else 'default.png') %}
           <img
-            src="{{ url_for('static', filename=user.avatar or 'uploads/default.png') }}"
-            alt="Avatar"
+            src="{{ url_for('static', filename=avatar_path) }}" alt="Avatar"
           />
           <h3>{{ user.name }}</h3>
           <p>{{ user.email }}</p>
