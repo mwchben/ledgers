@@ -5,7 +5,7 @@ Todo list;
 
 ************* */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 
 :root {
   --drawer: #f5f5f5;
@@ -16,9 +16,9 @@ Todo list;
   --background-secondary: #dad8d8;
   --background-secondary-faded: #d4c3c3;
   --background-card: #7b8288;
-  --accent-primary: rgba(54,80,209,1);
-  --accent-primary-faded: rgba(54,80,209,0.5);
-  --accent-primary-transparent: rgba(54,80,209,0);
+  --accent-primary: rgba(54, 80, 209, 1);
+  --accent-primary-faded: rgba(54, 80, 209, 0.5);
+  --accent-primary-transparent: rgba(54, 80, 209, 0);
   --status-red: #e76f51;
   --status-green: #2a9d8f;
 }
@@ -40,10 +40,10 @@ Todo list;
   background: #ffffff;
 }
 ::-webkit-scrollbar-thumb:active {
-  background: #16191C;
+  background: #16191c;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(102,102,102,30);
+  background: rgba(102, 102, 102, 30);
   border: 0px none #ffffff;
   border-radius: 50px;
 }
@@ -57,14 +57,15 @@ Todo list;
   background: transparent;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #333333;
 }
 
@@ -87,7 +88,7 @@ html, body {
   flex-grow: 0;
   flex-shrink: 0;
   background: var(--drawer);
-  box-shadow: 1px 0px 3px rgba(0,0,0,0.16), 1px 0px 3px rgba(0,0,0,0.23);
+  box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.16), 1px 0px 3px rgba(0, 0, 0, 0.23);
   box-sizing: border-box;
   flex-direction: column;
   justify-content: space-between;
@@ -107,7 +108,7 @@ html, body {
   font-size: 40px;
   opacity: 0.6;
   box-sizing: border-box;
-  
+
   transition: all 0.22s ease;
 }
 
@@ -134,7 +135,7 @@ html, body {
   color: var(--text-primary);
   font-size: 25px;
   opacity: 0.6;
-  
+
   transition: all 0.22s ease;
 }
 
@@ -197,7 +198,7 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.22s ease;
-  
+
   top: 30px;
   transform: scale(1.3);
   opacity: 0;
@@ -218,6 +219,7 @@ html, body {
 .container .content .page > .header {
   display: block;
   position: relative;
+  text-align: center;
   width: 100%;
   height: 120px;
   margin: 0;
@@ -242,12 +244,13 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-weight: 200;
 }
 
 .container .content .page .grid {
   display: flex;
   position: relative;
+  justify-content: center; 
+  align-items: center;
   width: 100%;
   height: 480px;
   flex-grow: 0;
@@ -321,7 +324,7 @@ html, body {
 }
 
 .container .content .page .grid .card .head .status:after {
-  content: '';
+  content: "";
   display: block;
   position: relative;
   width: 15px;
@@ -379,7 +382,7 @@ html, body {
   margin: 0;
   padding: 15px 0;
   box-sizing: border-box;
-  border-top: 1px solid rgba(134,144,154,0.4);
+  border-top: 1px solid rgba(134, 144, 154, 0.4);
 }
 
 .container .content .page .grid .card .footer .user {
@@ -483,7 +486,15 @@ html, body {
   float: left;
 }
 
-.container .content .page .grid .card-verticle .card-small .graph .bar .bar-content {
+.container
+  .content
+  .page
+  .grid
+  .card-verticle
+  .card-small
+  .graph
+  .bar
+  .bar-content {
   display: block;
   position: absolute;
   bottom: 0;
@@ -531,7 +542,7 @@ html, body {
   background: var(--background-card);
   overflow: hidden;
   transition: all 0.22s ease;
-  
+
   transform: translateX(-100%);
 }
 
@@ -587,7 +598,14 @@ html, body {
   transform: translateX(-170px);
 }
 
-.container .content .page .grid .users-table .users-item .user-edit-controls a.table-edit-button {
+.container
+  .content
+  .page
+  .grid
+  .users-table
+  .users-item
+  .user-edit-controls
+  a.table-edit-button {
   display: inline-block;
   position: relative;
   margin: 5px 0;
@@ -600,7 +618,14 @@ html, body {
   transition: all 0.22s ease;
 }
 
-.container .content .page .grid .users-table .users-item .user-edit-controls a.table-edit-button:hover {
+.container
+  .content
+  .page
+  .grid
+  .users-table
+  .users-item
+  .user-edit-controls
+  a.table-edit-button:hover {
   color: var(--text-primary);
   background: var(--accent-primary-faded);
 }
@@ -617,7 +642,7 @@ html, body {
   background: var(--background-card);
   overflow: hidden;
   transition: all 0.22s ease;
-  
+
   transform: translateX(-120%);
 }
 
@@ -683,7 +708,7 @@ html, body {
 .container .content .page .info-container {
   display: block;
   position: relative;
-  width: 100%;
+  align-items: center;
   height: 480px;
   box-sizing: border-box;
   margin: 0;
@@ -713,11 +738,10 @@ html, body {
   text-size: 1.5em;
   text-decoration: none;
   text-transform: uppercase;
-  
 }
 
 .container .content .page .info-container .info a:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 50%;
@@ -737,9 +761,9 @@ html, body {
   padding: 0;
   box-sizing: border-box;
   background: var(--background-secondary);
-  box-shadow: -3px 0px 6px rgba(0,0,0,0.16), -3px 0px 6px rgba(0,0,0,0.23);
+  box-shadow: -3px 0px 6px rgba(0, 0, 0, 0.16), -3px 0px 6px rgba(0, 0, 0, 0.23);
   z-index: 2;
-  
+
   display: none;
 }
 
@@ -754,14 +778,14 @@ html, body {
   box-sizing: border-box;
   overflow: hidden;
   transition: all 0.22s ease;
-  
+
   pointer-events: none;
-  background: rgba(34,39,43,0);
+  background: rgba(34, 39, 43, 0);
 }
 
 .container .dialog.active {
   pointer-events: auto;
-  background: rgba(34,39,43,0.65);
+  background: rgba(34, 39, 43, 0.65);
 }
 
 .container .dialog .dialog-block {
@@ -775,11 +799,11 @@ html, body {
   top: 50%;
   left: 50%;
   box-sizing: border-box;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   flex-direction: column;
   justify-content: space-between;
   transform: translateX(-50%) translateY(-50%) scale(0);
-  
+
   transition: all 0.22s 0.3s ease;
 }
 
@@ -788,7 +812,7 @@ html, body {
 }
 
 .container .dialog .dialog-block:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   left: 0;
@@ -840,7 +864,7 @@ html, body {
 }
 
 .container .dialog .dialog-block .controls .button:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 @keyframes fadeIn {
