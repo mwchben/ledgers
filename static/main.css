@@ -131,17 +131,18 @@ body {
   line-height: 50px;
   margin: 0;
   padding: 0;
-  text-align: center;
+  text-align: left;
   color: var(--text-primary);
   font-size: 25px;
-  opacity: 0.6;
-
+  opacity: 0.5;
   transition: all 0.22s ease;
+  text-decoration: none;
 }
 
 .container .drawer .menu a.active {
   opacity: 1;
   pointer-events: none;
+  color: #2a9d8f;
   cursor: default;
 }
 
