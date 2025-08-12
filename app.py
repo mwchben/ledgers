@@ -106,6 +106,19 @@ def edit_user(user_id):
     if request.method == 'POST':
         user.name = request.form['name']
         user.email = request.form['email']
+
+        new_password = request.form["password"]
+        if new_password.strip():
+            user.password = new_password
+
+        if 'avatar' in request.files:
+            file = request.files['avatar']
+            if file and file.filename:
+                filename = secure_filename(file.filename)
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(filepath)
+                user.avatar = f'uploads/{filename}'
+
         db.session.commit()
         flash('User updated successfully', 'success')
         return redirect(url_for('dashboard'))
