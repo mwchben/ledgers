@@ -132,7 +132,7 @@ def delete_user(user_id):
     flash('User deleted successfully', 'success')
     return redirect(url_for('dashboard'))
 
-#......................................................................................................
+#........................................404 Page !..............................................................
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html',title='Ooops!'), 404
