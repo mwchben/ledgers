@@ -1,5 +1,4 @@
   .form-container {
-    background-color: #e1e1e1;
     padding: 30px 25px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -44,7 +43,7 @@
   .form-container button {
     width: 100%;
     padding: 10px;
-    background-color: #28a745;
+    background-color: #2a9d8f;
     color: #fff;
     font-size: 16px;
     border: none;

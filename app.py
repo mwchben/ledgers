@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, logout_user, login_required,current_user
 from werkzeug.utils import secure_filename
+from flask_jwt_extended import JWTManager,create_access_token, jwt_required, get_jwt_identity
 from extensions.extension import db
 
 import os
@@ -11,13 +12,14 @@ app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app.config['SECRET_KEY'] = 'n7b4*(Y53b;a8>?vMOCVE8)'
+app.config['JWT_SECRET_KEY'] = '543HDcxv2y-gvbw6()&hvbw'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///maggiore.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = os.path.join(basedir, 'static', 'uploads')
 #create uploads folder if not already there
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-
+jwt = JWTManager(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
@@ -56,11 +58,12 @@ def login():
 
         admin = Admin.query.filter_by(username=username).first()
         if admin and admin.password == password:
+                access_token = create_access_token(identity=admin.id)
                 login_user(admin)
-                flash('Logged in successfully!', 'success')
+                flash('Logged in successfully!', 'success'),{'access_token': access_token}, 200
                 return redirect(url_for('dashboard'))
         else:
-            flash('Invalid username or password', 'danger')
+            flash('Invalid username or password', 'danger'),401
     return render_template('login.html', title='login')
 
 @app.route("/logout")
@@ -106,6 +109,19 @@ def edit_user(user_id):
     if request.method == 'POST':
         user.name = request.form['name']
         user.email = request.form['email']
+
+        new_password = request.form["password"]
+        if new_password.strip():
+            user.password = new_password
+
+        if 'avatar' in request.files:
+            file = request.files['avatar']
+            if file and file.filename:
+                filename = secure_filename(file.filename)
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(filepath)
+                user.avatar = f'uploads/{filename}'
+
         db.session.commit()
         flash('User updated successfully', 'success')
         return redirect(url_for('dashboard'))
@@ -119,7 +135,7 @@ def delete_user(user_id):
     flash('User deleted successfully', 'success')
     return redirect(url_for('dashboard'))
 
-#......................................................................................................
+#........................................404 Page !..............................................................
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html',title='Ooops!'), 404
