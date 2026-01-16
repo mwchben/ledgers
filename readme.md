@@ -9,24 +9,26 @@
 +-------------------+                       +---------------------+
         |                                             |
         |                                             |
-        |   1. User enters credentials                |
+        |   1. User enters credentials (coming soon)  |
         |-------------------------------------------->|
         |   2. Flask authenticates (JWT/Session)      |
+        |        (coming soon)                        |
         |<--------------------------------------------|
-        |   3. Receives token/session                 |
+        |   3. Receives token/session (coming soon)   |
         |                                             |
-        |   4. User fills input form                  |
+        |   4. User fills input form (Up && Running?) |
         |-------------------------------------------->|
         |   5. Flask validates & stores data          |
+        |      (Up && Running?)                       |
         |<--------------------------------------------|
         |   6. Success/failure response               |
+        |    (Up && Running?)                         |
         |                                             |
-        |                                             v
+        |                                             |
         |                                    +------------------+
         |                                    |                  |
         |                                    |   Database       |
-        |                                    | (SQLAlchemy ORM, |
-        |                                    |  e.g. PostgreSQL)|
+        |                                    | (SQLAlchemy)     |                                   
         |                                    |                  |
         |                                    +------------------+
         |
@@ -39,40 +41,32 @@
 
 ## Languages and frameworks I intend to use:
 - **Frontend (Android App):**
-  - Language: Kotlin
-  - UI: Jetpack Compose or XML layouts
-  - Networking: Retrofit/OkHttp for API calls
-  - Auth: Store JWT securely (EncryptedSharedPreferences)
+  - Language: Java
+  - UI: XML layouts
+  - ~Networking: Retrofit/OkHttp for API calls~
+  - ~Auth: Store JWT securely (EncryptedSharedPreferences)~
 
 - **Backend (Web Server):**
   - Language: Python
-  - Framework: Flask (with Flask-RESTful, Flask-JWT-Extended)
+  - Framework: Flask
   - ORM: SQLAlchemy
-  - Database: PostgreSQL (or SQLite for development)
-  - Auth: JWT or session cookies
-  - Input validation: Marshmallow
+  - Database: SQLite
+  - ~Auth: JWT or session cookies~
+  - ~Input validation: Marshmallow~
 
 ### **Architecture Flow Explained**
 
-1. **User Authentication**
-   - User opens the Kotlin Android app and enters login credentials.
-   - App sends credentials via HTTPS POST to a Flask /login endpoint.
-   - Flask validates credentials against the database and returns a JWT token or session cookie if successful.
-
-2. **Input & Data Upload**
+--- 
+i. **Input & Data Upload**
    - User fills out input fields in the Android app.
-   - App sends the data (with authentication token/session) to the Flask backend via a POST request.
+   - App sends the data to the Flask backend via a POST request.
    - Flask validates, processes, and stores the data in the database using SQLAlchemy.
-
-3. **Response**
+     
+---
+ii. **Response**
    - Flask sends a JSON response (success/failure) to the Android app.
    - App updates the UI accordingly.
 
-
-### **Security**
-- All communication is over HTTPS.
-- Authentication tokens stored securely on the device.
-- Backend validates all inputs and authenticates requests.
 
 ---
 
